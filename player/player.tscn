@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cd6fxjm4ouvsg"]
+
+[ext_resource type="Script" uid="uid://d4cy87wqo86uu" path="res://scripts/player.gd" id="1_oul6g"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8vrlf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
+radius = 8.0
+height = 32.0
+
+[node name="player" type="CharacterBody2D" unique_id=821478642]
+script = ExtResource("1_oul6g")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1042281610]
+position = Vector2(0, 1.9073486e-06)
+scale = Vector2(16, 16.000002)
+mesh = SubResource("CapsuleMesh_8vrlf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=643962234]
+shape = SubResource("CapsuleShape2D_1vivr")
+
+[node name="gun_pivot" type="Node2D" parent="." unique_id=882636775]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1994980958]
