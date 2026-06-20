@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://cd6fxjm4ouvsg"]
 
 [ext_resource type="Script" uid="uid://d4cy87wqo86uu" path="res://scripts/player.gd" id="1_oul6g"]
+[ext_resource type="Texture2D" uid="uid://bjepkb6fr1ksi" path="res://pngs/nug.png" id="2_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://enbc8wrc2luc" path="res://ui/ui.tscn" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="3_g6k8r"]
+[ext_resource type="Resource" uid="uid://qt3nrkcmyc4c" path="res://wheel_slots/basic.tres" id="3_qjkh3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8vrlf"]
 
@@ -10,6 +14,21 @@ height = 32.0
 
 [node name="player" type="CharacterBody2D" unique_id=821478642]
 script = ExtResource("1_oul6g")
+normal_slots = Array[ExtResource("3_g6k8r")]([null, null, null, null, null, null, null])
+current_slot = ExtResource("3_qjkh3")
+
+[node name="gun_pivot" type="Node2D" parent="." unique_id=882636775]
+
+[node name="gun_sprite" type="Sprite2D" parent="gun_pivot" unique_id=473237748]
+z_index = 1
+position = Vector2(12.000002, -1)
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("2_g1dw6")
+
+[node name="muzzle" type="Marker2D" parent="gun_pivot" unique_id=457510704]
+position = Vector2(21, -4)
+
+[node name="slots" type="Node2D" parent="." unique_id=2139044610]
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1042281610]
 position = Vector2(0, 1.9073486e-06)
@@ -19,6 +38,6 @@ mesh = SubResource("CapsuleMesh_8vrlf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=643962234]
 shape = SubResource("CapsuleShape2D_1vivr")
 
-[node name="gun_pivot" type="Node2D" parent="." unique_id=882636775]
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1994980958]
+
+[node name="ui" parent="." unique_id=737340152 instance=ExtResource("2_rkbax")]

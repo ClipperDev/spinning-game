@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d2gbbwwlxpbeq"]
+
+[ext_resource type="PackedScene" uid="uid://df7e3388lfhkp" path="res://projectiles/projectile.tscn" id="1_2fakh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jjt3o"]
+resource_local_to_scene = true
+radius = 5.0
+
+[node name="basic_bullet" unique_id=802680176 instance=ExtResource("1_2fakh")]
+speed = 500.0
+damage = 25.0
+lifetime = 5.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=381251837]
+shape = SubResource("CircleShape2D_jjt3o")

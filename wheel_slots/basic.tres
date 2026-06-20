@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WheelSlot" format=3 uid="uid://qt3nrkcmyc4c"]
+
+[ext_resource type="PackedScene" uid="uid://d2gbbwwlxpbeq" path="res://projectiles/basic_bullet.tscn" id="1_xjmxp"]
+[ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="2_rrl7d"]
+
+[resource]
+script = ExtResource("2_rrl7d")
+item_name = "default"
+bullet = ExtResource("1_xjmxp")
+metadata/_custom_type_script = "uid://dhpawmqpt3vvs"

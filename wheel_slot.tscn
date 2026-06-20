@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ckqy8og7jmkd8"]
+
+[ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="1_ecvhk"]
+
+[node name="WheelSlot" type="Node" unique_id=141438740]
+script = ExtResource("1_ecvhk")
