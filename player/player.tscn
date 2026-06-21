@@ -12,10 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://deoiro8ynbip6" path="res://player/sprites/walk.png" id="8_8t03j"]
 [ext_resource type="Script" uid="uid://chts54o0pwjjd" path="res://player/camera.gd" id="10_2ieo8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ieo8"]
-atlas = ExtResource("8_8t03j")
-region = Rect2(0, 0, 384, 384)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ebec5"]
 atlas = ExtResource("8_8t03j")
 region = Rect2(384, 0, 384, 384)
@@ -63,9 +59,6 @@ animations = [{
 "speed": 0.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2ieo8")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ebec5")
 }, {
