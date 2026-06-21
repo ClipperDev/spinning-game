@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://csn8m6xadp7cj" path="res://player/sprites/backhand.png" id="6_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://21f1xjoanekx" path="res://player/sprites/head.png" id="7_rgyib"]
 [ext_resource type="Texture2D" uid="uid://deoiro8ynbip6" path="res://player/sprites/walk.png" id="8_8t03j"]
+[ext_resource type="Script" uid="uid://chts54o0pwjjd" path="res://player/camera.gd" id="10_2ieo8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ieo8"]
 atlas = ExtResource("8_8t03j")
@@ -97,11 +98,11 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_8vrlf"]
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
-radius = 14.0
+radius = 17.0
 height = 152.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8vrlf"]
 
 [node name="player" type="CharacterBody2D" unique_id=821478642]
 script = ExtResource("1_oul6g")
@@ -148,16 +149,19 @@ texture = ExtResource("7_rgyib")
 
 [node name="slots" type="Node2D" parent="." unique_id=2139044610]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=643962234]
+position = Vector2(-2, 16)
+shape = SubResource("CapsuleShape2D_1vivr")
+
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1042281610]
+visible = false
 position = Vector2(0, 1.9073486e-06)
 scale = Vector2(16, 16.000002)
 mesh = SubResource("CapsuleMesh_8vrlf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=643962234]
-position = Vector2(6, 14)
-shape = SubResource("CapsuleShape2D_1vivr")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1994980958]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1384453235]
+position_smoothing_enabled = true
+script = ExtResource("10_2ieo8")
 
 [node name="ui" parent="." unique_id=737340152 instance=ExtResource("2_rkbax")]
 offset_left = -640.0

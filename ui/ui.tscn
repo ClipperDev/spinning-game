@@ -10,18 +10,16 @@ anchors_preset = 0
 mouse_filter = 2
 script = ExtResource("1_wl5ax")
 
-[node name="wheel" parent="." unique_id=1075253300 instance=ExtResource("1_nb4k0")]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=643822415]
+
+[node name="wheel" parent="CanvasLayer" unique_id=1075253300 instance=ExtResource("1_nb4k0")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 640.0
-offset_right = 640.0
 grow_horizontal = 2
 scale = Vector2(0.21578313, 0.21578313)
 
-[node name="chips" type="Label" parent="." unique_id=634992783]
-layout_mode = 0
+[node name="chips" type="Label" parent="CanvasLayer" unique_id=634992783]
 offset_left = 42.0
 offset_top = 9.0
 offset_right = 97.0
@@ -30,6 +28,6 @@ scale = Vector2(0.85233414, 0.85233414)
 theme_override_font_sizes/font_size = 32
 text = "100"
 
-[node name="Sprite2D" type="Sprite2D" parent="chips" unique_id=1662503014]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/chips" unique_id=1662503014]
 position = Vector2(-18, 24)
 texture = ExtResource("2_ks8t7")

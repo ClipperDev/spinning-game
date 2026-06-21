@@ -32,3 +32,11 @@ texture = ExtResource("4_lqt7o")
 [node name="Icon2" type="Sprite2D" parent="." unique_id=420754893]
 position = Vector2(937, 627)
 texture = ExtResource("4_lqt7o")
+
+[node name="Icon3" type="Sprite2D" parent="." unique_id=922988026]
+position = Vector2(305, 765)
+texture = ExtResource("4_lqt7o")
+
+[node name="Icon4" type="Sprite2D" parent="." unique_id=147082135]
+position = Vector2(940, 315)
+texture = ExtResource("4_lqt7o")

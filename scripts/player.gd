@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var ui = $ui
 @onready var gun_pivot: Node2D = $gun_pivot
@@ -24,6 +25,9 @@ var chips = 100
 
 var gun_flipped: bool = false
 var direction: float = 1
+
+func _ready() -> void:
+	Global.player = self
 
 func _process(_delta: float) -> void:
 	rotate_gun()
@@ -74,10 +78,17 @@ func rotate_head():
 func body_flipper_and_anim():
 	if gun_flipped:
 		body_pivot.scale.x = abs(body_pivot.scale.x) * -1
-		if direction >= 0:
+		if direction >= 1:
 			body_anim.play_backwards("walk")
-			
+		elif direction <= -1:
+			body_anim.play("walk")
+		else: body_anim.play("idle")
 	elif not gun_flipped:
+		if direction <= -1:
+			body_anim.play_backwards("walk")
+		elif direction >= 1:
+			body_anim.play("walk")
+		else: body_anim.play("idle")
 		body_pivot.scale.x = abs(body_pivot.scale.x)
 
 
@@ -111,6 +122,7 @@ func shoot() -> void:
 		add_sibling(bullet)
 		bullet.global_transform = gun_pivot.get_node("muzzle").global_transform
 		ammo -= 1
+		
 	
 
 # replace a section with a new one
