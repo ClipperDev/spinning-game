@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name Player
+#class_name Player
 
 @onready var ui = $ui
 @onready var gun_pivot: Node2D = $gun_pivot
@@ -27,8 +27,8 @@ var gun_flipped: bool = false
 var direction: float = 1
 
 func _ready() -> void:
-	Global.player = self
-
+	pass
+	
 func _process(_delta: float) -> void:
 	rotate_gun()
 	rotate_head()
