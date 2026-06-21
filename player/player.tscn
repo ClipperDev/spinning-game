@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://csn8m6xadp7cj" path="res://player/sprites/backhand.png" id="6_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://21f1xjoanekx" path="res://player/sprites/head.png" id="7_rgyib"]
 [ext_resource type="Texture2D" uid="uid://deoiro8ynbip6" path="res://player/sprites/walk.png" id="8_8t03j"]
+[ext_resource type="Texture2D" uid="uid://2cmn2ifjm5hc" path="res://player/sprites/jump.png" id="8_ebec5"]
 [ext_resource type="Script" uid="uid://chts54o0pwjjd" path="res://player/camera.gd" id="10_2ieo8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ebec5"]
@@ -56,6 +57,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ebec5")
+}],
+"loop": 1,
+"name": &"jump",
 "speed": 0.0
 }, {
 "frames": [{
@@ -128,9 +137,8 @@ position = Vector2(-3, 0)
 position = Vector2(16, 0)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_yffdw")
-animation = &"walk"
+animation = &"idle"
 autoplay = "walk"
-frame_progress = 0.22811465
 
 [node name="head_pivot" type="Node2D" parent="body_pivot" unique_id=441031810]
 position = Vector2(9, -18)
