@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://crcliukludp7t"]
+
+[ext_resource type="Script" uid="uid://diifd6k0tng2j" path="res://scripts/shop.gd" id="1_foe6g"]
+[ext_resource type="PackedScene" uid="uid://c85nyatcxibyc" path="res://ui/shop_item.tscn" id="2_2v8nf"]
+
+[node name="shop" type="Panel" unique_id=986474371]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_foe6g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1399875224]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 281.0
+offset_right = 888.0
+offset_bottom = 452.0
+
+[node name="shop_item" parent="HBoxContainer" unique_id=407288892 instance=ExtResource("2_2v8nf")]
+layout_mode = 2
+
+[node name="shop_item2" parent="HBoxContainer" unique_id=1162338836 instance=ExtResource("2_2v8nf")]
+layout_mode = 2
+
+[node name="shop_item3" parent="HBoxContainer" unique_id=404555733 instance=ExtResource("2_2v8nf")]
+layout_mode = 2
+
+[node name="shop_item4" parent="HBoxContainer" unique_id=1189592272 instance=ExtResource("2_2v8nf")]
+layout_mode = 2
+
+[node name="shop_item5" parent="HBoxContainer" unique_id=803766077 instance=ExtResource("2_2v8nf")]
+layout_mode = 2

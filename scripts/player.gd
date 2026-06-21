@@ -17,6 +17,8 @@ var ammo: int = max_ammo
 @export var jackpot_slot: WheelSlot
 @export var current_slot: WheelSlot
 
+var chips = 100
+
 var gun_flipped = false
 
 func _process(_delta: float) -> void:
@@ -82,5 +84,10 @@ func shoot() -> void:
 		ammo -= 1
 	
 
-func update_slots_icons() -> void:
-	pass
+# replace a section with a new one
+func replace_wheel_section(section: WheelSlot, slot: int, jackpot: float = false) -> void:
+	if jackpot:
+		jackpot_slot = section
+	else:
+		normal_slots[slot] = section
+	# animations needed
