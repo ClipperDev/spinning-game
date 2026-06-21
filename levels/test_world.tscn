@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cd6fxjm4ouvsg" path="res://player/player.tscn" id="1_piha8"]
 [ext_resource type="PackedScene" uid="uid://dkp4a12gcwcqw" path="res://projectiles/default_jackpot_proj.tscn" id="2_c576j"]
 [ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="2_kbvng"]
+[ext_resource type="Texture2D" uid="uid://d4fhi07gfh58s" path="res://icon.svg" id="4_lqt7o"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1vivr"]
 
@@ -21,5 +22,13 @@ position = Vector2(654, 604)
 shape = SubResource("WorldBoundaryShape2D_1vivr")
 
 [node name="player" parent="." unique_id=821478642 instance=ExtResource("1_piha8")]
-position = Vector2(654, 580)
+position = Vector2(655, 503)
 jackpot_slot = SubResource("Resource_piha8")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=40246551]
+position = Vector2(355, 414)
+texture = ExtResource("4_lqt7o")
+
+[node name="Icon2" type="Sprite2D" parent="." unique_id=420754893]
+position = Vector2(937, 627)
+texture = ExtResource("4_lqt7o")

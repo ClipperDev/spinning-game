@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var ui = $ui
 @onready var gun_pivot: Node2D = $gun_pivot
 @onready var body_pivot: Node2D = $body_pivot
+@onready var body_anim: AnimatedSprite2D = body_pivot.get_node("body")
 @onready var head_pivot: Node2D = $body_pivot/head_pivot
 
 @export var max_hp: float = 100.0
@@ -21,12 +22,13 @@ var ammo: int = max_ammo
 
 var chips = 100
 
-var gun_flipped = false
+var gun_flipped: bool = false
+var direction: float = 1
 
 func _process(_delta: float) -> void:
 	rotate_gun()
 	rotate_head()
-	body_flipper()
+	body_flipper_and_anim()
 	
 func _physics_process(delta: float) -> void:
 	# onle the basic movement is in play rn, maybe change this later
@@ -34,11 +36,13 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * 0.9 * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_vel
-	var direction := Input.get_axis("left", "right")
+		
+	direction = Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
+		
 	move_and_slide()
 
 func rotate_gun() -> void:
@@ -58,6 +62,7 @@ func rotate_gun() -> void:
 
 func rotate_head():
 	head_pivot.look_at(get_global_mouse_position())
+	head_pivot.rotation = clampf(head_pivot.rotation, deg_to_rad(-20), deg_to_rad(50))
 	#if head_pivot.rotation > PI * 3 / 2 or head_pivot.rotation < -PI * 3 / 2:
 		#head_pivot.rotation = 0
 	#if head_pivot.rotation > PI / 2 or head_pivot.rotation < -PI / 2:
@@ -66,9 +71,12 @@ func rotate_head():
 	#elif gun_flipped:
 			#head_pivot.scale.y = abs(head_pivot.scale.y) * -1
 
-func body_flipper():
+func body_flipper_and_anim():
 	if gun_flipped:
 		body_pivot.scale.x = abs(body_pivot.scale.x) * -1
+		if direction >= 0:
+			body_anim.play_backwards("walk")
+			
 	elif not gun_flipped:
 		body_pivot.scale.x = abs(body_pivot.scale.x)
 
