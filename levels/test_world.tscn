@@ -6,7 +6,7 @@
 
 [node name="test_world" type="Node2D" unique_id=712316580]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=199574858]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=199574858 groups=["terrain"]]
 position = Vector2(654, 604)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=106130859]

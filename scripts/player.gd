@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var max_hp: float = 100.0
 var hp: float = max_hp
 @export var max_ammo: int = 6
-var ammo: int
+var ammo: int = max_ammo
 @export var speed: float = 300.0
 @export var jump_vel: float = 400.0
 @export var normal_slots: Array[WheelSlot]
@@ -15,7 +15,7 @@ var ammo: int
 
 var gun_flipped = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	rotate_gun()
 
 func _physics_process(delta: float) -> void:
@@ -49,14 +49,27 @@ func rotate_gun() -> void:
 func _input(event: InputEvent) -> void:
 	# shooting
 	if event.is_action_pressed("fire"):
-		var bullet: Area2D = current_slot.bullet.instantiate()
-		add_sibling(bullet)
-		bullet.global_transform = gun_pivot.get_node("muzzle").global_transform
+		shoot()
+	# reloading. add animation later
+	if event.is_action_pressed("reload"):
+		await get_tree().create_timer(
+			1.44, 
+			false
+		).timeout
+		ammo = max_ammo
 	
 	# spin to win type shi, add animations later
 	if event.is_action_pressed("spin"):
 		randomize()
 		current_slot = normal_slots.pick_random()
+	
+
+func shoot() -> void:
+	if ammo > 0:
+		var bullet: Area2D = current_slot.bullet.instantiate()
+		add_sibling(bullet)
+		bullet.global_transform = gun_pivot.get_node("muzzle").global_transform
+		ammo -= 1
 	
 
 func update_slots_icons() -> void:
