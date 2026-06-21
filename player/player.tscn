@@ -1,11 +1,25 @@
 [gd_scene format=3 uid="uid://cd6fxjm4ouvsg"]
 
 [ext_resource type="Script" uid="uid://d4cy87wqo86uu" path="res://scripts/player.gd" id="1_oul6g"]
-[ext_resource type="Texture2D" uid="uid://bjepkb6fr1ksi" path="res://pngs/nug.png" id="2_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://enbc8wrc2luc" path="res://ui/ui.tscn" id="2_rkbax"]
 [ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="3_g6k8r"]
 [ext_resource type="Resource" uid="uid://qt3nrkcmyc4c" path="res://wheel_slots/basic.tres" id="3_qjkh3"]
 [ext_resource type="Resource" uid="uid://cjrxxdyi43ats" path="res://wheel_slots/default_jackpot.tres" id="4_g6k8r"]
+[ext_resource type="Texture2D" uid="uid://cmo0f4si33je5" path="res://player/sprites/idlebody.png" id="5_boad6"]
+[ext_resource type="Texture2D" uid="uid://dnuvdcgrgaan5" path="res://player/sprites/fronthand.png" id="6_boad6"]
+[ext_resource type="Texture2D" uid="uid://csn8m6xadp7cj" path="res://player/sprites/backhand.png" id="6_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://21f1xjoanekx" path="res://player/sprites/head.png" id="7_rgyib"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yffdw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_boad6")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 0.0
+}]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8vrlf"]
 
@@ -21,19 +35,44 @@ jackpot_slot = ExtResource("4_g6k8r")
 current_slot = ExtResource("3_qjkh3")
 
 [node name="gun_pivot" type="Node2D" parent="." unique_id=882636775]
+position = Vector2(-3, -10)
+
+[node name="backhand" type="Sprite2D" parent="gun_pivot" unique_id=827236238]
+position = Vector2(16, 11)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_hg6s5")
 
 [node name="gun_sprite" type="Sprite2D" parent="gun_pivot" unique_id=473237748]
 z_index = 1
-position = Vector2(12.000002, -1)
-scale = Vector2(0.175, 0.175)
-texture = ExtResource("2_g1dw6")
+position = Vector2(16, 11)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_boad6")
 
 [node name="muzzle" type="Marker2D" parent="gun_pivot" unique_id=457510704]
-position = Vector2(21, -4)
+position = Vector2(88, -19)
+
+[node name="body_pivot" type="Node2D" parent="." unique_id=779129392]
+position = Vector2(-3, 0)
+
+[node name="body" type="AnimatedSprite2D" parent="body_pivot" unique_id=1727833554]
+position = Vector2(16, 0)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_yffdw")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="head_pivot" type="Node2D" parent="body_pivot" unique_id=441031810]
+position = Vector2(11, -18)
+scale = Vector2(0.5, 0.5)
+
+[node name="head" type="Sprite2D" parent="body_pivot/head_pivot" unique_id=1250103489]
+position = Vector2(16, 42)
+texture = ExtResource("7_rgyib")
 
 [node name="slots" type="Node2D" parent="." unique_id=2139044610]
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1042281610]
+visible = false
 position = Vector2(0, 1.9073486e-06)
 scale = Vector2(16, 16.000002)
 mesh = SubResource("CapsuleMesh_8vrlf")

@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
-@onready var gun_pivot = $gun_pivot
 @onready var ui = $ui
+@onready var gun_pivot: Node2D = $gun_pivot
+@onready var body_pivot: Node2D = $body_pivot
+@onready var head_pivot: Node2D = $body_pivot/head_pivot
 
 @export var max_hp: float = 100.0
 var hp: float = max_hp
@@ -23,7 +25,9 @@ var gun_flipped = false
 
 func _process(_delta: float) -> void:
 	rotate_gun()
-
+	rotate_head()
+	body_flipper()
+	
 func _physics_process(delta: float) -> void:
 	# onle the basic movement is in play rn, maybe change this later
 	if not is_on_floor():
@@ -37,7 +41,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	move_and_slide()
 
-
 func rotate_gun() -> void:
 	gun_pivot.look_at(get_global_mouse_position())
 	if gun_pivot.rotation > PI * 3 / 2 or gun_pivot.rotation < -PI * 3 / 2:
@@ -45,11 +48,29 @@ func rotate_gun() -> void:
 	if gun_pivot.rotation > PI / 2 or gun_pivot.rotation < -PI / 2:
 		if not gun_flipped:
 			gun_flipped = true
-			gun_pivot.get_node("gun_sprite").set_flip_v(true)
+			gun_pivot.scale.y = abs(gun_pivot.scale.y) * -1
+			#gun_pivot.get_node("gun_sprite").set_flip_v(true)
 	else:
 		if gun_flipped:
 			gun_flipped = false
-			gun_pivot.get_node("gun_sprite").set_flip_v(false)
+			gun_pivot.scale.y = abs(gun_pivot.scale.y)
+			#gun_pivot.get_node("gun_sprite").set_flip_v(false)
+
+func rotate_head():
+	head_pivot.look_at(get_global_mouse_position())
+	#if head_pivot.rotation > PI * 3 / 2 or head_pivot.rotation < -PI * 3 / 2:
+		#head_pivot.rotation = 0
+	#if head_pivot.rotation > PI / 2 or head_pivot.rotation < -PI / 2:
+	#if not gun_flipped:
+		#head_pivot.scale.y = abs(head_pivot.scale.y)
+	#elif gun_flipped:
+			#head_pivot.scale.y = abs(head_pivot.scale.y) * -1
+
+func body_flipper():
+	if gun_flipped:
+		body_pivot.scale.x = abs(body_pivot.scale.x) * -1
+	elif not gun_flipped:
+		body_pivot.scale.x = abs(body_pivot.scale.x)
 
 
 func _input(event: InputEvent) -> void:
