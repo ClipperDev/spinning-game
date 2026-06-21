@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://enbc8wrc2luc" path="res://ui/ui.tscn" id="2_rkbax"]
 [ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="3_g6k8r"]
 [ext_resource type="Resource" uid="uid://qt3nrkcmyc4c" path="res://wheel_slots/basic.tres" id="3_qjkh3"]
+[ext_resource type="Resource" uid="uid://cjrxxdyi43ats" path="res://wheel_slots/default_jackpot.tres" id="4_g6k8r"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8vrlf"]
 
@@ -14,7 +15,9 @@ height = 32.0
 
 [node name="player" type="CharacterBody2D" unique_id=821478642]
 script = ExtResource("1_oul6g")
-normal_slots = Array[ExtResource("3_g6k8r")]([null, null, null, null, null, null, null])
+default_bullet = ExtResource("3_qjkh3")
+normal_slots = Array[ExtResource("3_g6k8r")]([ExtResource("3_qjkh3"), ExtResource("3_qjkh3"), ExtResource("3_qjkh3"), ExtResource("3_qjkh3"), ExtResource("3_qjkh3"), ExtResource("3_qjkh3"), ExtResource("3_qjkh3")])
+jackpot_slot = ExtResource("4_g6k8r")
 current_slot = ExtResource("3_qjkh3")
 
 [node name="gun_pivot" type="Node2D" parent="." unique_id=882636775]

@@ -1,8 +1,16 @@
 [gd_scene format=3 uid="uid://bymfu3lcxrk63"]
 
 [ext_resource type="PackedScene" uid="uid://cd6fxjm4ouvsg" path="res://player/player.tscn" id="1_piha8"]
+[ext_resource type="PackedScene" uid="uid://dkp4a12gcwcqw" path="res://projectiles/default_jackpot_proj.tscn" id="2_c576j"]
+[ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="2_kbvng"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1vivr"]
+
+[sub_resource type="Resource" id="Resource_piha8"]
+script = ExtResource("2_kbvng")
+item_name = "default_jackpot"
+bullet = ExtResource("2_c576j")
+metadata/_custom_type_script = "uid://dhpawmqpt3vvs"
 
 [node name="test_world" type="Node2D" unique_id=712316580]
 
@@ -14,3 +22,4 @@ shape = SubResource("WorldBoundaryShape2D_1vivr")
 
 [node name="player" parent="." unique_id=821478642 instance=ExtResource("1_piha8")]
 position = Vector2(654, 580)
+jackpot_slot = SubResource("Resource_piha8")

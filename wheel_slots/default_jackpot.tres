@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WheelSlot" format=3 uid="uid://cjrxxdyi43ats"]
+
+[ext_resource type="PackedScene" uid="uid://dkp4a12gcwcqw" path="res://projectiles/default_jackpot_proj.tscn" id="1_f1ge1"]
+[ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="2_75hap"]
+
+[resource]
+script = ExtResource("2_75hap")
+item_name = "default_jackpot"
+bullet = ExtResource("1_f1ge1")
+metadata/_custom_type_script = "uid://dhpawmqpt3vvs"

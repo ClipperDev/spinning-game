@@ -40,7 +40,7 @@ func _body_entered(body: Node2D) -> void:
 				if pierce_count <= 0:
 					queue_free()
 	
-	if body.is_in_group("terrain"):
+	if body.is_in_group("terrain") and not pierces_terrain:
 		queue_free()
 
 ## override it with something

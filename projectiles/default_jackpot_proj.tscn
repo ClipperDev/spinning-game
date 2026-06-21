@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dkp4a12gcwcqw"]
+
+[ext_resource type="PackedScene" uid="uid://df7e3388lfhkp" path="res://projectiles/projectile.tscn" id="1_moyjd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
+radius = 14.0
+height = 332.0
+
+[node name="default_jackpot_proj" unique_id=802680176 instance=ExtResource("1_moyjd")]
+speed = 1200.0
+damage = 150.0
+pierce_count = 50
+pierces_terrain = true
+lifetime = 3.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=381251837]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_1vivr")
+debug_color = Color(0, 0.95000005, 1, 0.7294118)

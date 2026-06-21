@@ -9,6 +9,10 @@ var hp: float = max_hp
 var ammo: int = max_ammo
 @export var speed: float = 300.0
 @export var jump_vel: float = 400.0
+@export var acceleration: float
+@export var air_control: float
+@export var dash_str: float
+@export var default_bullet: WheelSlot 
 @export var normal_slots: Array[WheelSlot]
 @export var jackpot_slot: WheelSlot
 @export var current_slot: WheelSlot
@@ -57,11 +61,17 @@ func _input(event: InputEvent) -> void:
 			false
 		).timeout
 		ammo = max_ammo
+		current_slot = default_bullet
 	
 	# spin to win type shi, add animations later
 	if event.is_action_pressed("spin"):
 		randomize()
-		current_slot = normal_slots.pick_random()
+		var rng = randf_range(0.0, 1.0)
+		if rng <= 0.04:
+			current_slot = jackpot_slot
+		else:
+			current_slot = normal_slots.pick_random()
+		ammo = max_ammo
 	
 
 func shoot() -> void:
