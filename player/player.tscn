@@ -1,17 +1,110 @@
 [gd_scene format=3 uid="uid://cd6fxjm4ouvsg"]
 
 [ext_resource type="Script" uid="uid://d4cy87wqo86uu" path="res://scripts/player.gd" id="1_oul6g"]
-[ext_resource type="Texture2D" uid="uid://bjepkb6fr1ksi" path="res://pngs/nug.png" id="2_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://enbc8wrc2luc" path="res://ui/ui.tscn" id="2_rkbax"]
 [ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="3_g6k8r"]
 [ext_resource type="Resource" uid="uid://qt3nrkcmyc4c" path="res://wheel_slots/basic.tres" id="3_qjkh3"]
 [ext_resource type="Resource" uid="uid://cjrxxdyi43ats" path="res://wheel_slots/default_jackpot.tres" id="4_g6k8r"]
+[ext_resource type="Texture2D" uid="uid://cmo0f4si33je5" path="res://player/sprites/idlebody.png" id="5_boad6"]
+[ext_resource type="Texture2D" uid="uid://dnuvdcgrgaan5" path="res://player/sprites/fronthand.png" id="6_boad6"]
+[ext_resource type="Texture2D" uid="uid://csn8m6xadp7cj" path="res://player/sprites/backhand.png" id="6_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://21f1xjoanekx" path="res://player/sprites/head.png" id="7_rgyib"]
+[ext_resource type="Texture2D" uid="uid://deoiro8ynbip6" path="res://player/sprites/walk.png" id="8_8t03j"]
+[ext_resource type="Texture2D" uid="uid://2cmn2ifjm5hc" path="res://player/sprites/jump.png" id="8_ebec5"]
+[ext_resource type="Script" uid="uid://chts54o0pwjjd" path="res://player/camera.gd" id="10_2ieo8"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_8vrlf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebec5"]
+atlas = ExtResource("8_8t03j")
+region = Rect2(384, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yllr7"]
+atlas = ExtResource("8_8t03j")
+region = Rect2(768, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb6p2"]
+atlas = ExtResource("8_8t03j")
+region = Rect2(1152, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wodsf"]
+atlas = ExtResource("8_8t03j")
+region = Rect2(0, 384, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32hag"]
+atlas = ExtResource("8_8t03j")
+region = Rect2(384, 384, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqiix"]
+atlas = ExtResource("8_8t03j")
+region = Rect2(768, 384, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7oew"]
+atlas = ExtResource("8_8t03j")
+region = Rect2(1152, 384, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c35mf"]
+atlas = ExtResource("8_8t03j")
+region = Rect2(0, 768, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65viv"]
+atlas = ExtResource("8_8t03j")
+region = Rect2(384, 768, 384, 384)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yffdw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_boad6")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ebec5")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebec5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yllr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kb6p2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wodsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32hag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqiix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7oew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c35mf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65viv")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 12.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
-radius = 8.0
-height = 32.0
+radius = 17.0
+height = 152.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8vrlf"]
 
 [node name="player" type="CharacterBody2D" unique_id=821478642]
 script = ExtResource("1_oul6g")
@@ -21,27 +114,55 @@ jackpot_slot = ExtResource("4_g6k8r")
 current_slot = ExtResource("3_qjkh3")
 
 [node name="gun_pivot" type="Node2D" parent="." unique_id=882636775]
+position = Vector2(-3, -12)
+
+[node name="backhand" type="Sprite2D" parent="gun_pivot" unique_id=827236238]
+position = Vector2(16, 11)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_hg6s5")
 
 [node name="gun_sprite" type="Sprite2D" parent="gun_pivot" unique_id=473237748]
 z_index = 1
-position = Vector2(12.000002, -1)
-scale = Vector2(0.175, 0.175)
-texture = ExtResource("2_g1dw6")
+position = Vector2(16, 11)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_boad6")
 
 [node name="muzzle" type="Marker2D" parent="gun_pivot" unique_id=457510704]
-position = Vector2(21, -4)
+position = Vector2(88, -19)
+
+[node name="body_pivot" type="Node2D" parent="." unique_id=779129392]
+position = Vector2(-3, 0)
+
+[node name="body" type="AnimatedSprite2D" parent="body_pivot" unique_id=1727833554]
+position = Vector2(16, 0)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_yffdw")
+animation = &"idle"
+autoplay = "walk"
+
+[node name="head_pivot" type="Node2D" parent="body_pivot" unique_id=441031810]
+position = Vector2(9, -18)
+scale = Vector2(0.5, 0.5)
+
+[node name="head" type="Sprite2D" parent="body_pivot/head_pivot" unique_id=1250103489]
+position = Vector2(16, 42)
+texture = ExtResource("7_rgyib")
 
 [node name="slots" type="Node2D" parent="." unique_id=2139044610]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=643962234]
+position = Vector2(-2, 16)
+shape = SubResource("CapsuleShape2D_1vivr")
+
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1042281610]
+visible = false
 position = Vector2(0, 1.9073486e-06)
 scale = Vector2(16, 16.000002)
 mesh = SubResource("CapsuleMesh_8vrlf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=643962234]
-shape = SubResource("CapsuleShape2D_1vivr")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1994980958]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1384453235]
+position_smoothing_enabled = true
+script = ExtResource("10_2ieo8")
 
 [node name="ui" parent="." unique_id=737340152 instance=ExtResource("2_rkbax")]
 offset_left = -640.0
