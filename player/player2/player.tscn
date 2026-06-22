@@ -236,8 +236,11 @@ _data = {
 [node name="player" type="CharacterBody2D" unique_id=1388490003]
 collision_layer = 2
 script = ExtResource("1_koi66")
+gravity = 14.0
 jump_buffer = 0.1
 coyote_time = 0.09
+speed = 200.0
+jump = 350.0
 
 [node name="Statemachine" type="Node" parent="." unique_id=1808324895]
 script = ExtResource("2_3pimp")
@@ -245,25 +248,25 @@ debug = true
 
 [node name="idle" type="Node" parent="Statemachine" unique_id=88336545]
 script = ExtResource("3_5tybs")
-state_friction = 650.0
+state_friction = 3000.0
 id = &"idle"
 
 [node name="walk" type="Node" parent="Statemachine" unique_id=636183426]
 script = ExtResource("2_iuhyu")
-state_acceleration = 600.0
-state_friction = 700.0
+state_acceleration = 900.0
+state_friction = 3000.0
 id = &"walk"
 
 [node name="jump" type="Node" parent="Statemachine" unique_id=1205857240]
 script = ExtResource("5_0huha")
-state_acceleration = 1000.0
-state_friction = 300.0
+state_acceleration = 1400.0
+state_friction = 500.0
 id = &"jump"
 
 [node name="fall" type="Node" parent="Statemachine" unique_id=94588950]
 script = ExtResource("6_jleqr")
-state_acceleration = 700.0
-state_friction = 200.0
+state_acceleration = 1500.0
+state_friction = 400.0
 id = &"fall"
 
 [node name="body_pivot" type="Node2D" parent="." unique_id=1568743991]

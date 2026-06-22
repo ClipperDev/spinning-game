@@ -16,7 +16,7 @@ func apply_movement(delta: float, acceleration: float, friction: float):
 	var input_dir: float = get_input_dir()
 	
 	if input_dir != 0:
-		player.velocity.x = move_toward(player.velocity.x, player.SPEED * input_dir, acceleration * delta)
+		player.velocity.x = move_toward(player.velocity.x, player.speed * input_dir, acceleration * delta)
 	else: 
 		player.velocity.x = move_toward(player.velocity.x, 0, friction * delta)
 		

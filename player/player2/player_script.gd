@@ -8,15 +8,15 @@ class_name Player
 @onready var statemachine: Node = $Statemachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@export var gravity: float = 10
+@export var gravity: float = 10.0
 
 @export var jump_buffer: float
 @export var coyote_time: float
 var jump_buffer_timer: float
 var coyote_timer: float
 
-const SPEED: float = 150
-const JUMP: float = 300
+@export var speed: float = 150.0
+@export var jump: float = 300.0
 
 var lookdir: int = 1
 var can_jump: bool

@@ -3,7 +3,7 @@ class_name PlayerJump
 
 func enter(_data: Variant) -> void:
 	player.can_jump = false
-	player.velocity.y -= player.JUMP
+	player.velocity.y -= player.jump
 	player.change_anim("jumpfall")
 	
 func physics_state(delta: float) -> StringName:
