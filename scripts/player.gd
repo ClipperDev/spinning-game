@@ -16,7 +16,7 @@ var ammo: int = max_ammo
 @export var acceleration: float
 @export var air_control: float
 @export var dash_str: float
-@export var default_bullet: WheelSlot 
+@export var default_bullet: WheelSlot
 @export var normal_slots: Array[WheelSlot]
 @export var jackpot_slot: WheelSlot
 @export var current_slot: WheelSlot
@@ -28,26 +28,25 @@ var direction: float = 1
 
 func _ready() -> void:
 	pass
-	
+
 func _process(_delta: float) -> void:
 	rotate_gun()
 	rotate_head()
 	body_flipper_and_anim()
-	
+
 func _physics_process(delta: float) -> void:
 	# onle the basic movement is in play rn, maybe change this later
 	if not is_on_floor():
-		velocity += get_gravity() * 0.9 * delta
-		body_anim.play("jump", 0, 1)
+		velocity += get_gravity() * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_vel
-		
+
 	direction = Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
-		
+
 	move_and_slide()
 
 func rotate_gun() -> void:
@@ -100,12 +99,12 @@ func _input(event: InputEvent) -> void:
 	# reloading. add animation later
 	if event.is_action_pressed("reload"):
 		await get_tree().create_timer(
-			1.44, 
+			1.44,
 			false
 		).timeout
 		ammo = max_ammo
 		current_slot = default_bullet
-	
+
 	# spin to win type shi, add animations later
 	if event.is_action_pressed("spin"):
 		randomize()
@@ -115,7 +114,7 @@ func _input(event: InputEvent) -> void:
 		else:
 			current_slot = normal_slots.pick_random()
 		ammo = max_ammo
-	
+
 
 func shoot() -> void:
 	if ammo > 0:
@@ -123,8 +122,8 @@ func shoot() -> void:
 		add_sibling(bullet)
 		bullet.global_transform = gun_pivot.get_node("muzzle").global_transform
 		ammo -= 1
-		
-	
+
+
 
 # replace a section with a new one
 func replace_wheel_section(section: WheelSlot, slot: int, jackpot: float = false) -> void:
