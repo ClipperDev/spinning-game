@@ -1,50 +1,51 @@
 [gd_scene format=3 uid="uid://dvax3pt1c2alc"]
 
-[ext_resource type="Texture2D" uid="uid://bu8q6k8n32bts" path="res://pngs/jackpot_placeholder.png" id="1_oyw86"]
-[ext_resource type="Texture2D" uid="uid://c2uh11s8x8628" path="res://pngs/normal_placeholder.png" id="2_fccca"]
+[ext_resource type="Texture2D" uid="uid://mkafcu8hqq1v" path="res://pngs/jackpot_placeholder_white.png" id="1_fccca"]
+[ext_resource type="Texture2D" uid="uid://r7eo1fttsa17" path="res://pngs/normal_placeholder_white.png" id="2_6rmvm"]
+[ext_resource type="Texture2D" uid="uid://bqs4jf1d0vylj" path="res://pngs/wheel.png" id="3_s2jd5"]
 
 [node name="wheel" type="Control" unique_id=1075253300]
 layout_mode = 3
 anchors_preset = 0
 
 [node name="JackpotPlaceholder" type="Sprite2D" parent="." unique_id=1901642495]
-position = Vector2(1, 150)
+position = Vector2(2.2189026, 150.5)
 rotation = 3.1415927
-texture = ExtResource("1_oyw86")
+texture = ExtResource("1_fccca")
 
 [node name="NormalPlaceholder" type="Sprite2D" parent="." unique_id=1953912930]
-position = Vector2(80, 126.00001)
+position = Vector2(81.2189, 126.50001)
 rotation = 2.576106
-texture = ExtResource("2_fccca")
+texture = ExtResource("2_6rmvm")
 
 [node name="NormalPlaceholder2" type="Sprite2D" parent="." unique_id=1839581966]
-position = Vector2(147, 20.999998)
+position = Vector2(148.2189, 21.499998)
 rotation = 1.717404
-texture = ExtResource("2_fccca")
+texture = ExtResource("2_6rmvm")
 
 [node name="NormalPlaceholder3" type="Sprite2D" parent="." unique_id=493972058]
-position = Vector2(110.99999, -98.99999)
+position = Vector2(112.218895, -98.49999)
 rotation = 0.858702
-texture = ExtResource("2_fccca")
+texture = ExtResource("2_6rmvm")
 
 [node name="NormalPlaceholder4" type="Sprite2D" parent="." unique_id=711978604]
-position = Vector2(-2, -150)
-texture = ExtResource("2_fccca")
+position = Vector2(-0.7810974, -149.5)
+texture = ExtResource("2_6rmvm")
 
 [node name="NormalPlaceholder5" type="Sprite2D" parent="." unique_id=1007251881]
-position = Vector2(-116, -96.99999)
+position = Vector2(-114.7811, -96.49999)
 rotation = -0.858702
-texture = ExtResource("2_fccca")
+texture = ExtResource("2_6rmvm")
 
 [node name="NormalPlaceholder6" type="Sprite2D" parent="." unique_id=1731416371]
-position = Vector2(-149, 23.999992)
+position = Vector2(-147.7811, 24.499992)
 rotation = -1.717404
-texture = ExtResource("2_fccca")
+texture = ExtResource("2_6rmvm")
 
 [node name="NormalPlaceholder7" type="Sprite2D" parent="." unique_id=1714327671]
-position = Vector2(-79, 128)
+position = Vector2(-77.7811, 128.5)
 rotation = -2.576106
-texture = ExtResource("2_fccca")
+texture = ExtResource("2_6rmvm")
 
 [node name="slot_1" type="Area2D" parent="." unique_id=800931037]
 visible = false
@@ -108,3 +109,6 @@ visible = false
 position = Vector2(2, 150)
 rotation = -3.1415925
 polygon = PackedVector2Array(-22.5, -147.6, -22.5, -146.3, -35.5, -145.3, -35.5, -138.3, -1.5, 111.899994, -1.5, 117.29999, 4.100006, 117.70001, 37.199997, -132.5, 39.5, -132.5, 36.5, -143, 36.5, -146.4)
+
+[node name="Wheel" type="Sprite2D" parent="." unique_id=2035160563]
+texture = ExtResource("3_s2jd5")
