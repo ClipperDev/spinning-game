@@ -1,25 +1,23 @@
-extends State
-class_name Idle
+extends PlayerState
+class_name PlayerIdle
 
-func Enter():
-	handled_node.anim.play("idle")
+func enter(_data: Variant) -> void:
+	player.can_jump = true
+	player.change_anim("idle")
 	
-func Process(_delta: float):
-	pass
+func physics_state(_delta: float) -> StringName:
+	apply_movement(_delta, state_acceleration, state_friction)
+	player.move_and_slide()
+	if not player.is_on_floor():
+		return &"fall"
+		
+	if Input.is_action_just_pressed("jump") and player.can_jump:
+		return &"jump"
+		
+	if get_input_dir() != 0:
+		return &"walk"
 	
-func Physics_Process(delta: float):
-	handled_node.velocity += handled_node.get_gravity() * delta
+	return NO_STATE
 	
-	handled_node.velocity.x = move_toward(handled_node.velocity.x, 0, 2000 * delta)
-	
-	if Input.get_axis("left", "right"):
-		Transitioned.emit(self, "walk")
-	
-	if Input.is_action_just_pressed("jump") and handled_node.is_on_floor():
-		Transitioned.emit(self, "jump")
-	elif not handled_node.is_on_floor():
-		Transitioned.emit(self, "fall")
-	
-	
-func Exit():
-	handled_node.anim.play("RESET")
+func exit() -> void:
+	player.change_anim("RESET")

@@ -1,21 +1,30 @@
-extends State
-class_name Fall
+extends PlayerState
+class_name PlayerFall
 
-func Enter():
-	handled_node.anim.play("jumpfall")
+func enter(_data: Variant) -> void:
+	player.change_anim("jumpfall")
+	player.coyote_timer = player.coyote_time
 	
-func Physics_Process(delta: float):
-	handled_node.velocity += handled_node.get_gravity() * delta
 	
-	handled_node.direction = Input.get_axis("left", "right")
+func physics_state(_delta: float) -> StringName:
 	
-	handled_node.velocity.x = move_toward(
-		handled_node.velocity.x, handled_node.SPEED * handled_node.direction, 2000 * delta
-		)
-		
-
-	if handled_node.is_on_floor():
-		Transitioned.emit(self, "idle")
+	apply_movement(_delta, state_acceleration, state_friction)
+	gravity_fall()
+	player.move_and_slide()
 	
-func Exit():
-	handled_node.anim.play("RESET")
+	if Input.is_action_just_pressed("jump"):
+		if player.coyote_timer > 0.0 and player.can_jump:
+			return &"jump"
+		player.jump_buffer_timer = player.jump_buffer
+	
+	player.jump_buffer_timer -= _delta
+	player.coyote_timer -= _delta
+	
+	if player.is_on_floor():
+		if player.jump_buffer_timer > 0.0:
+			return &"jump"
+		if abs(player.velocity.x) < 0.1 and get_input_dir() == 0.0:
+			return &"idle"
+		return &"walk"
+	
+	return NO_STATE

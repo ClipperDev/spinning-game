@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c5coxd37o8782"]
 
 [ext_resource type="Script" uid="uid://bknr0tt1bdncu" path="res://player/player2/player_script.gd" id="1_koi66"]
-[ext_resource type="Script" uid="uid://dtsx0bd6wt85l" path="res://player/player2/statemachine.gd" id="2_bd5oy"]
+[ext_resource type="Script" uid="uid://bhsx2ck3idi4e" path="res://player/player2/state_machine.gd" id="2_3pimp"]
 [ext_resource type="Script" uid="uid://ciartn1n8xdy5" path="res://player/player2/states/walk.gd" id="2_iuhyu"]
 [ext_resource type="Script" uid="uid://bo7oxj6h3els0" path="res://player/player2/states/idle.gd" id="3_5tybs"]
 [ext_resource type="Script" uid="uid://dk623481pxb6b" path="res://player/player2/states/jump.gd" id="5_0huha"]
@@ -234,57 +234,73 @@ _data = {
 }
 
 [node name="player" type="CharacterBody2D" unique_id=1388490003]
+collision_layer = 2
 script = ExtResource("1_koi66")
+jump_buffer = 0.1
+coyote_time = 0.09
 
-[node name="Statemachine" type="Node" parent="." unique_id=1808324895 node_paths=PackedStringArray("initial_state")]
-script = ExtResource("2_bd5oy")
-initial_state = NodePath("idle")
+[node name="Statemachine" type="Node" parent="." unique_id=1808324895]
+script = ExtResource("2_3pimp")
+debug = true
 
 [node name="idle" type="Node" parent="Statemachine" unique_id=88336545]
 script = ExtResource("3_5tybs")
+state_friction = 650.0
+id = &"idle"
 
 [node name="walk" type="Node" parent="Statemachine" unique_id=636183426]
 script = ExtResource("2_iuhyu")
+state_acceleration = 600.0
+state_friction = 700.0
+id = &"walk"
 
 [node name="jump" type="Node" parent="Statemachine" unique_id=1205857240]
 script = ExtResource("5_0huha")
+state_acceleration = 1000.0
+state_friction = 300.0
+id = &"jump"
 
 [node name="fall" type="Node" parent="Statemachine" unique_id=94588950]
 script = ExtResource("6_jleqr")
-
-[node name="gun_pivot" type="Node2D" parent="." unique_id=218124521]
-position = Vector2(-3, -12)
-
-[node name="backhand" type="Sprite2D" parent="gun_pivot" unique_id=1797783657]
-position = Vector2(16, 11)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_k34ak")
-
-[node name="gun_sprite" type="Sprite2D" parent="gun_pivot" unique_id=132097677]
-z_index = 1
-position = Vector2(16, 11)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_boki8")
-
-[node name="muzzle" type="Marker2D" parent="gun_pivot" unique_id=2028472609]
-position = Vector2(88, -19)
+state_acceleration = 700.0
+state_friction = 200.0
+id = &"fall"
 
 [node name="body_pivot" type="Node2D" parent="." unique_id=1568743991]
-position = Vector2(-3, 0)
+position = Vector2(4, 0)
 
 [node name="body" type="AnimatedSprite2D" parent="body_pivot" unique_id=1833530465]
-position = Vector2(17, 0)
+position = Vector2(9, 0)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_aojnv")
 animation = &"idle"
 
 [node name="head_pivot" type="Node2D" parent="body_pivot" unique_id=1448723946]
-position = Vector2(9, -18)
+position = Vector2(6, -18)
 scale = Vector2(0.5, 0.5)
 
 [node name="head" type="Sprite2D" parent="body_pivot/head_pivot" unique_id=579828200]
+z_index = 1
 position = Vector2(16, 42)
 texture = ExtResource("10_d5ddg")
+
+[node name="gun_pivot" type="Node2D" parent="body_pivot" unique_id=218124521]
+position = Vector2(-7, -12)
+
+[node name="backhand" type="Sprite2D" parent="body_pivot/gun_pivot" unique_id=1797783657]
+z_index = -1
+position = Vector2(16, 11)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_k34ak")
+
+[node name="gun_sprite" type="Sprite2D" parent="body_pivot/gun_pivot" unique_id=132097677]
+z_index = 2
+position = Vector2(16, 11)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_boki8")
+
+[node name="muzzle" type="Marker2D" parent="body_pivot/gun_pivot" unique_id=2028472609]
+position = Vector2(88, -19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=452219580]
 position = Vector2(1, 9.5)

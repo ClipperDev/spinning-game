@@ -1,36 +1,27 @@
-extends State
-class_name Walk
+extends PlayerState
+class_name PlayerWalk
 
-var backwards: bool
+func enter(_data: Variant) -> void:
+	player.can_jump = true
+	
 
-func Enter():
-	pass
+func physics_state(delta: float) -> StringName:
+	apply_movement(delta, state_acceleration, state_friction)
+	player.move_and_slide()
 	
+	if get_input_dir():
+		if player.lookdir == get_input_dir():
+			player.change_anim("walk_forwards")
+		else: player.change_anim("walk_backwards")
 	
+	if not player.is_on_floor():
+		return &"fall"
+	if Input.is_action_just_pressed("jump") and player.can_jump:
+		return &"jump"
+	if not get_input_dir():
+		return &"idle"
+
+	return NO_STATE
 	
-func Process(_delta: float):
-	print(handled_node.lookdir, " ", handled_node.direction)
-	
-func Physics_Process(delta: float):
-	if float(handled_node.lookdir) == handled_node.direction:
-		handled_node.anim.play("walk_forwards")
-	else: handled_node.anim.play("walk_backwards")
-	
-	handled_node.direction = Input.get_axis("left", "right")
-	
-	#backward/forward anim
-	
-	handled_node.velocity.x = move_toward(
-		handled_node.velocity.x, handled_node.SPEED * handled_node.direction, 2000 * delta
-		)
-	
-	if Input.is_action_just_pressed("jump") and handled_node.is_on_floor():
-		Transitioned.emit(self, "jump")
-	elif not handled_node.is_on_floor():
-		Transitioned.emit(self, "fall")
-	
-	if !handled_node.direction:
-		Transitioned.emit(self, "idle")
-	
-func Exit():
-	handled_node.anim.play("RESET")
+func exit() -> void:
+	player.change_anim("RESET")

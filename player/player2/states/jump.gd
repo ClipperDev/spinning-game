@@ -1,29 +1,22 @@
-extends State
-class_name Jump
+extends PlayerState
+class_name PlayerJump
 
+func enter(_data: Variant) -> void:
+	player.can_jump = false
+	player.velocity.y -= player.JUMP
+	player.change_anim("jumpfall")
+	
+func physics_state(delta: float) -> StringName:
+	apply_movement(delta, state_acceleration, state_friction)
+	gravity_fall()
+	player.move_and_slide()
+	
+	if player.is_on_floor():
+		return &"idle"
+	if Input.is_action_just_released("jump") or player.velocity.y > 0:
+		return &"fall"
 
-func Enter():
-	handled_node.anim.play("jumpfall")
-	handled_node.velocity.y -= handled_node.JUMP
+	return NO_STATE
 	
-func Process(_delta: float):
-	pass
-	
-func Physics_Process(delta: float):
-	handled_node.velocity += handled_node.get_gravity() * delta
-	
-	handled_node.direction = Input.get_axis("left", "right")
-	
-	handled_node.velocity.x = move_toward(
-		handled_node.velocity.x, handled_node.SPEED * handled_node.direction, 2000 * delta
-		)
-		
-	if Input.is_action_just_released("jump"):
-		Transitioned.emit(self, "fall")
-	if handled_node.is_on_floor():
-		Transitioned.emit(self, "idle")
-	
-	
-func Exit():
-	handled_node.velocity.y /= 2
-	handled_node.anim.play("RESET")
+func exit() -> void:
+	player.velocity.y /= 2
