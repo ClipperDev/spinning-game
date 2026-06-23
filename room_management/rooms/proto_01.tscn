@@ -1,0 +1,46 @@
+[gd_scene format=4 uid="uid://ds14xqb2eve64"]
+
+[ext_resource type="Script" uid="uid://bwy6ro0dm2rdq" path="res://room_management/room.gd" id="1_j2h2d"]
+[ext_resource type="TileSet" uid="uid://dun726mvvq6m1" path="res://wall_tileset.tres" id="2_v6fti"]
+[ext_resource type="Script" uid="uid://2w4yr1ht5pv2" path="res://room_management/door_marker.gd" id="3_4bfxx"]
+[ext_resource type="Script" uid="uid://dleif5scyhx46" path="res://room_management/room_choice.gd" id="4_v6fti"]
+
+[sub_resource type="Resource" id="Resource_xq2he"]
+script = ExtResource("4_v6fti")
+room_id = &"proto_02"
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_w3kn3"]
+script = ExtResource("4_v6fti")
+room_id = &"proto_03"
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_v6fti"]
+script = ExtResource("4_v6fti")
+room_id = &"proto_04"
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_4bfxx"]
+script = ExtResource("4_v6fti")
+room_id = &"proto_04"
+door_index = 1
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[node name="Proto_01" type="Node2D" unique_id=1177476960 node_paths=PackedStringArray("doors")]
+script = ExtResource("1_j2h2d")
+room_id = &"proto_01"
+doors = {
+0: NodePath("DoorMarker")
+}
+metadata/_custom_type_script = "uid://bwy6ro0dm2rdq"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1273603715]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAEAAAAAAAYAAAADAAAAAAAAAAcAAAAJAAIAAAABAAcAAAAKAAIAAAACAAcAAAAKAAIAAAACAAYAAAAKAAAAAAABAAYAAAAKAAAAAAADAAYAAAAKAAAAAAADAAcAAAAKAAIAAAAEAAYAAAAJAAMAAAAEAAcAAAAKAAIAAAAEAAUAAAAJAAAAAAAFAAcAAAAKAAIAAAAFAAYAAAAKAAEAAAAGAAcAAAAKAAIAAAAFAAUAAAAKAAAAAAAGAAYAAAAIAAMAAAAHAAYAAAAKAAAAAAAGAAUAAAALAAAAAAAIAAYAAAAKAAAAAAAJAAYAAAAKAAAAAAAKAAYAAAAKAAAAAAALAAYAAAAKAAAAAAAMAAYAAAAKAAAAAAANAAYAAAAKAAAAAAAOAAYAAAAJAAMAAAAOAAUAAAAJAAAAAAAMAAcAAAAKAAIAAAALAAcAAAAKAAIAAAAKAAcAAAAKAAIAAAAJAAcAAAAKAAIAAAAIAAcAAAAKAAIAAAAHAAcAAAAKAAIAAAANAAcAAAAKAAIAAAAOAAcAAAAKAAIAAAAPAAcAAAALAAIAAAAPAAYAAAALAAEAAAAPAAUAAAALAAAAAAAAAAAAAAADAAEAAAAAAP//AAAJAAAAAAABAP//AAAKAAAAAAACAP//AAAKAAAAAAAFAAAAAAAKAAIAAAAEAAAAAAAKAAIAAAADAP//AAAKAAAAAAAGAAAAAAALAAMAAAAHAAAAAAAKAAEAAAAIAAAAAAAKAAEAAAAJAAAAAAAIAAMAAAAHAP//AAAKAAAAAAAGAP//AAAKAAAAAAAFAP//AAAKAAAAAAAEAP//AAAKAAAAAAADAAAAAAAKAAIAAAACAAAAAAAKAAIAAAABAAAAAAAKAAIAAAAKAAAAAAAKAAAAAAAKAAEAAAAKAAEAAAAKAAIAAAAKAAIAAAAJAAIAAAAJAAIAAAAJAAEAAAALAAMAAAAIAAEAAAAKAAIAAAAHAAEAAAAKAAIAAAAGAAEAAAAJAAIAAAALAAAAAAAKAAAAAAAMAAEAAAAIAAMAAAAMAAIAAAAKAAIAAAANAAIAAAAKAAIAAAANAAEAAAAKAAAAAAAOAAIAAAAKAAIAAAAPAAIAAAALAAIAAAAPAAEAAAALAAAAAAAOAAEAAAAKAAAAAAALAAEAAAAKAAEAAAALAAIAAAAKAAIAAAAMAAAAAAALAAAAAAAJAP//AAALAAAAAAAIAP//AAAKAAAAAAA=")
+tile_set = ExtResource("2_v6fti")
+
+[node name="DoorMarker" type="Marker2D" parent="." unique_id=1408073110]
+position = Vector2(1512, 264)
+script = ExtResource("3_4bfxx")
+possible_rooms = Array[ExtResource("4_v6fti")]([SubResource("Resource_xq2he"), SubResource("Resource_w3kn3"), SubResource("Resource_v6fti"), SubResource("Resource_4bfxx")])
+metadata/_custom_type_script = "uid://2w4yr1ht5pv2"

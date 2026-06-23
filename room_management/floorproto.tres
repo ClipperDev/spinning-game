@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="FloorData" format=3 uid="uid://b6s4v38ev463e"]
+
+[ext_resource type="Script" uid="uid://ddkpmkfbewtpa" path="res://room_management/floor_data.gd" id="1_srvhd"]
+
+[resource]
+script = ExtResource("1_srvhd")
+starting_room_id = &"proto_01"
+metadata/_custom_type_script = "uid://ddkpmkfbewtpa"

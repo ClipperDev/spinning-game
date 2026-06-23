@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://2cmn2ifjm5hc" path="res://player/sprites/jump.png" id="8_jleqr"]
 [ext_resource type="Texture2D" uid="uid://deoiro8ynbip6" path="res://player/sprites/walk.png" id="9_3pimp"]
 [ext_resource type="Texture2D" uid="uid://21f1xjoanekx" path="res://player/sprites/head.png" id="10_d5ddg"]
-[ext_resource type="Script" uid="uid://chts54o0pwjjd" path="res://player/camera.gd" id="11_boki8"]
 [ext_resource type="PackedScene" uid="uid://enbc8wrc2luc" path="res://ui/ui.tscn" id="14_3pimp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ebec5"]
@@ -240,7 +239,7 @@ gravity = 14.0
 jump_buffer = 0.1
 coyote_time = 0.09
 speed = 300.0
-jump = 450.0
+jump = 2000.0
 
 [node name="Statemachine" type="Node" parent="." unique_id=1808324895]
 script = ExtResource("2_3pimp")
@@ -312,9 +311,5 @@ shape = SubResource("RectangleShape2D_yffdw")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1987029370]
 libraries/ = SubResource("AnimationLibrary_boki8")
 autoplay = &"idle"
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1971189910]
-position_smoothing_enabled = true
-script = ExtResource("11_boki8")
 
 [node name="ui" parent="." unique_id=737340152 instance=ExtResource("14_3pimp")]

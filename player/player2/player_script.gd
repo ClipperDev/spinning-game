@@ -1,5 +1,5 @@
-extends CharacterBody2D
-class_name Player
+class_name Player extends CharacterBody2D
+
 
 @onready var gun_pivot: Node2D = $body_pivot/gun_pivot
 @onready var body_pivot: Node2D = $body_pivot
@@ -39,7 +39,7 @@ func _physics_process(_delta: float) -> void:
 	rotate_gun()
 	
 	
-	move_and_slide()
+
 
 func rotate_gun() -> void:
 	gun_pivot.look_at(get_global_mouse_position())

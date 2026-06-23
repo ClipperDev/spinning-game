@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RoomsPaths" format=3 uid="uid://bywpc7ke4h8q4"]
+
+[ext_resource type="Script" uid="uid://gili253k2hf2" path="res://room_management/room_paths.gd" id="1_l737w"]
+
+[resource]
+script = ExtResource("1_l737w")
+ROOM_PATHS = Dictionary[StringName, String]({
+&"proto_01": "res://room_management/rooms/proto_01.tscn",
+&"proto_02": "res://room_management/rooms/proto_02.tscn",
+&"proto_03": "res://room_management/rooms/proto_03.tscn",
+&"proto_04": "res://room_management/rooms/proto_04.tscn"
+})

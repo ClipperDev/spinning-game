@@ -1,4 +1,4 @@
-extends Camera2D
+class_name PlayerCamera extends Camera2D
 
 @export var shake_fade: float = 10.0
 
@@ -7,7 +7,7 @@ var camera_favor: float = 25
 var _shake: float = 0
 
 func _ready() -> void:
-	Global.camera = self
+	pass
 
 func _physics_process(_delta: float) -> void:
 	var path: Vector2 = -Global.player.global_position + get_global_mouse_position()
