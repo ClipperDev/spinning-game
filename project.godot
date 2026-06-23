@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*uid://snxcxvkpu0pi"
+RoomRegistry="*uid://qp67rm30bwcb"
+RoomManager="*uid://bqy1o26hhc1ex"
 
 [display]
 

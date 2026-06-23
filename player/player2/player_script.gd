@@ -1,5 +1,5 @@
-extends CharacterBody2D
-class_name Player
+class_name Player extends CharacterBody2D
+
 
 @onready var gun_pivot: Node2D = $body_pivot/gun_pivot
 @onready var body_pivot: Node2D = $body_pivot
