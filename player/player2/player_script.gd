@@ -39,7 +39,7 @@ func _physics_process(_delta: float) -> void:
 	rotate_gun()
 	
 	
-	move_and_slide()
+
 
 func rotate_gun() -> void:
 	gun_pivot.look_at(get_global_mouse_position())

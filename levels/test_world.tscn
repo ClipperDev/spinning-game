@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bymfu3lcxrk63"]
 
 [ext_resource type="PackedScene" uid="uid://c5coxd37o8782" path="res://player/player2/player.tscn" id="2_kbvng"]
+[ext_resource type="Script" uid="uid://chts54o0pwjjd" path="res://player/camera.gd" id="3_c576j"]
 [ext_resource type="Texture2D" uid="uid://cmmb6nwcg6cxt" path="res://levels/bricktile2.png" id="4_lqt7o"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yffdw"]
@@ -400,6 +401,11 @@ sources/0 = SubResource("TileSetAtlasSource_vytw3")
 
 [node name="player" parent="." unique_id=1388490003 instance=ExtResource("2_kbvng")]
 position = Vector2(527, 543)
+
+[node name="PlayerCamera" type="Camera2D" parent="player" unique_id=1697166767]
+position = Vector2(-527, -543)
+script = ExtResource("3_c576j")
+metadata/_custom_type_script = "uid://chts54o0pwjjd"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=199574858 groups=["terrain"]]
 position = Vector2(654, 604)
