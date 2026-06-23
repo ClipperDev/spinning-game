@@ -239,8 +239,8 @@ script = ExtResource("1_koi66")
 gravity = 14.0
 jump_buffer = 0.1
 coyote_time = 0.09
-speed = 200.0
-jump = 350.0
+speed = 300.0
+jump = 450.0
 
 [node name="Statemachine" type="Node" parent="." unique_id=1808324895]
 script = ExtResource("2_3pimp")
