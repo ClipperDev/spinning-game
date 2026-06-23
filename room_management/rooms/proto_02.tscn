@@ -1,0 +1,32 @@
+[gd_scene format=4 uid="uid://cba0vhr74rkr7"]
+
+[ext_resource type="Script" uid="uid://bwy6ro0dm2rdq" path="res://room_management/room.gd" id="1_xxp3d"]
+[ext_resource type="TileSet" uid="uid://dun726mvvq6m1" path="res://wall_tileset.tres" id="2_b306u"]
+[ext_resource type="Script" uid="uid://2w4yr1ht5pv2" path="res://room_management/door_marker.gd" id="3_xq2he"]
+
+[node name="Proto_02" type="Node2D" unique_id=1177476960 node_paths=PackedStringArray("doors")]
+script = ExtResource("1_xxp3d")
+room_id = &"proto_02"
+doors = [NodePath("DoorMarker"), NodePath("DoorMarker2")]
+metadata/_custom_type_script = "uid://bwy6ro0dm2rdq"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1273603715]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAAEAAAAJAAEAAAAAAAIAAAAJAAIAAAAAAAUAAAAJAAAAAAAAAAYAAAAJAAEAAAAAAAcAAAAJAAIAAAABAAcAAAAKAAIAAAACAAcAAAAKAAIAAAACAAYAAAAKAAAAAAABAAYAAAAIAAMAAAADAAYAAAAKAAAAAAADAAcAAAAKAAIAAAAEAAYAAAALAAAAAAAAAAAAAAAJAAEAAAAAAP//AAAJAAAAAAABAP//AAAKAAAAAAACAP//AAAKAAAAAAAFAAAAAAAKAAIAAAAEAAAAAAAKAAIAAAADAP//AAAKAAAAAAAGAAAAAAALAAMAAAAHAAAAAAAIAAMAAAAHAP//AAALAAAAAAAGAP//AAAKAAAAAAAFAP//AAAKAAAAAAAEAP//AAAKAAAAAAADAAAAAAAKAAIAAAACAAAAAAAKAAIAAAABAAAAAAAKAAMAAAAHAAEAAAAKAAIAAAAGAAEAAAAJAAIAAAABAAEAAAALAAEAAAABAAIAAAALAAIAAAABAAUAAAALAAAAAAAIAAEAAAAFAAEAAAAIAAAAAAALAAAAAAAEAAcAAAAHAAEAAAAEAAgAAAABAAIAAAAFAAgAAAACAAAAAAAFAAkAAAADAAAAAAAFAAoAAAAJAAIAAAAGAAoAAAAKAAIAAAAGAAkAAAAKAAAAAAAHAAkAAAALAAAAAAAHAAoAAAAFAAEAAAAIAAoAAAABAAMAAAAJAAoAAAACAAAAAAAJAAEAAAACAAAAAAAJAAIAAAABAAIAAAAKAAIAAAACAAAAAAAKAAMAAAABAAIAAAALAAMAAAACAAAAAAAMAAQAAAABAAMAAAANAAQAAAACAAAAAAANAAUAAAAAAAEAAAALAAQAAAABAAIAAAANAAYAAAAAAAEAAAANAAcAAAAAAAEAAAANAAgAAAABAAIAAAAJAAsAAAABAAIAAAAKAAsAAAABAAMAAAALAAsAAAABAAMAAAAMAAsAAAABAAMAAAANAAsAAAABAAMAAAAOAAsAAAACAAMAAAAOAAgAAAACAAMAAAA=")
+tile_set = ExtResource("2_b306u")
+
+[node name="DoorMarker" type="Marker2D" parent="." unique_id=1408073110]
+position = Vector2(24, 264)
+script = ExtResource("3_xq2he")
+possible_rooms = Dictionary[StringName, int]({
+&"proto_01": 0
+})
+metadata/_custom_type_script = "uid://2w4yr1ht5pv2"
+
+[node name="DoorMarker2" type="Marker2D" parent="." unique_id=1266728292]
+position = Vector2(1416, 840)
+script = ExtResource("3_xq2he")
+possible_rooms = Dictionary[StringName, int]({
+&"proto_03": 0
+})
+metadata/_custom_type_script = "uid://2w4yr1ht5pv2"
