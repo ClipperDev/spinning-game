@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://cbfwuw457lp1n"]
+
+[ext_resource type="AudioStream" uid="uid://bauadbvft84fn" path="res://music/menu_music.mp3" id="1_3c04x"]
+[ext_resource type="Script" uid="uid://rxejmlj5sh3" path="res://ui/main_menu/main_menu.gd" id="1_joh67"]
+[ext_resource type="Texture2D" uid="uid://bi8l5ej6g5hpd" path="res://ui/main_menu/background.png" id="2_joh67"]
+[ext_resource type="Texture2D" uid="uid://dnx8ja64b6b6l" path="res://ui/main_menu/player.png" id="3_u184e"]
+[ext_resource type="Texture2D" uid="uid://qmr5xgx42av8" path="res://ui/main_menu/light.png" id="4_6mijq"]
+[ext_resource type="Texture2D" uid="uid://xtmwnbc12t4x" path="res://ui/main_menu/frontwall.png" id="5_w2r0d"]
+
+[node name="Main_Menu" type="Control" unique_id=701418793]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_joh67")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1330688040]
+stream = ExtResource("1_3c04x")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=628609810]
+
+[node name="background" type="TextureRect" parent="CanvasLayer" unique_id=1190593334]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_joh67")
+expand_mode = 1
+
+[node name="player" type="TextureRect" parent="CanvasLayer" unique_id=2128961226]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_u184e")
+expand_mode = 1
+
+[node name="light" type="TextureRect" parent="CanvasLayer" unique_id=603086496]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_6mijq")
+expand_mode = 1
+
+[node name="frontwall" type="TextureRect" parent="CanvasLayer" unique_id=420910625]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_w2r0d")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/frontwall" unique_id=1321931955]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.5
+offset_top = -360.0
+offset_right = -86.5
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 350)
+theme_override_constants/separation = 100
+
+[node name="Play" type="Button" parent="CanvasLayer/frontwall/VBoxContainer" unique_id=665414774]
+layout_mode = 2
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 30
+text = "PLAY
+"
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1919402492]
