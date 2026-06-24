@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://bhsx2ck3idi4e" path="res://player/player2/state_machine.gd" id="3_1ak7o"]
 [ext_resource type="Script" uid="uid://d07w7diyg6p66" path="res://enemies/pokerchip/states/poker_walk.gd" id="4_wh7bk"]
 [ext_resource type="Script" uid="uid://c2fa0kn5k2tdj" path="res://enemies/pokerchip/poker_run.gd" id="4_xu30f"]
+[ext_resource type="Texture2D" uid="uid://bfc3ui0r3irub" path="res://enemies/pokerchip/blackpoker.png" id="5_ddhaj"]
+[ext_resource type="Texture2D" uid="uid://b5610hvt2rqup" path="res://enemies/pokerchip/bluepoker.png" id="6_uds4d"]
+[ext_resource type="Texture2D" uid="uid://b743qj8s33kl5" path="res://enemies/pokerchip/greenpoker.png" id="7_xfphy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_caei2"]
 radius = 44.911022
@@ -23,10 +26,34 @@ b = Vector2(600, 0)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_ddhaj")
+}],
+"loop": 1,
+"name": &"black",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_uds4d")
+}],
+"loop": 1,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_xfphy")
+}],
+"loop": 1,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_ivgvl")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"red",
 "speed": 5.0
 }]
 
@@ -80,6 +107,7 @@ one_shot = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="body" unique_id=579358873]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_yffdw")
+animation = &"green"
 
 [connection signal="area_entered" from="detection_range" to="." method="_on_detection_range_area_entered"]
 [connection signal="timeout" from="direction_timer" to="." method="_on_direction_timer_timeout"]

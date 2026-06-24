@@ -15,6 +15,7 @@ var current_speed: float
 
 @export var max_health: float = 10
 var health: float
+@export var damage: float = 10
 
 var alert: bool = false
 

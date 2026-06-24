@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cexgxuksfxx8k"]
+
+[ext_resource type="PackedScene" uid="uid://b4twtsva0if78" path="res://enemies/pokerchip/base_poker.tscn" id="1_p7wds"]
+
+[node name="base_poker" unique_id=423833925 instance=ExtResource("1_p7wds")]
