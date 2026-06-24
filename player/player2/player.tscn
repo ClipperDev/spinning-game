@@ -232,6 +232,9 @@ _data = {
 &"walk_forwards": SubResource("Animation_jleqr")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jleqr"]
+size = Vector2(20, 144)
+
 [node name="player" type="CharacterBody2D" unique_id=1388490003 groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_koi66")
@@ -313,3 +316,9 @@ libraries/ = SubResource("AnimationLibrary_boki8")
 autoplay = &"idle"
 
 [node name="ui" parent="." unique_id=737340152 instance=ExtResource("14_3pimp")]
+
+[node name="hurtbox" type="Area2D" parent="." unique_id=1706732644 groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=674913517]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_jleqr")

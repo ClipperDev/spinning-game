@@ -4,6 +4,8 @@ class_name PokerEnemy
 @onready var movement_machine: StateMachine = $movement_machine
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var direction_timer: Timer = $direction_timer
+@onready var aggro_timer: Timer = $aggro_timer
+@onready var body: Node2D = $body
 
 @export var run_speed: float = 300
 @export var walk_speed: float = 150
@@ -33,9 +35,10 @@ func _process(_delta: float) -> void:
 func _on_detection_range_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		alert = true
-		pass
 
 func _on_direction_timer_timeout() -> void:
 	direction *= -1
-	direction_timer.start(randf_range(1.0, 5.0))
+	direction_timer.start(randf_range(3.0, 7.0))
 	
+func take_damage(value: float):
+	health -= value

@@ -13,9 +13,9 @@ func _on_owner_set():
 	assert(enemy != null, "Cannot use state, null enemy %s" % name)
 
 func get_direction_to_player() -> int:
-	if player.global_position.x < enemy.global_position:
-		return 1
-	else: return -1
+	if Global.player.global_position.x < enemy.global_position.x:
+		return -1
+	else: return 1
 
 func get_random_direction() -> int:
 	return 0
@@ -30,7 +30,7 @@ func gravity_fall(extra_gravity: float = 0.0):
 	enemy.velocity.y += enemy.gravity + extra_gravity
 
 func handle_rolling(delta: float):
-	enemy.rotation += 0.01 * enemy.velocity.x * delta
+	enemy.body.rotation += 0.01 * enemy.velocity.x * delta
 	
 func jump(jump_force: float):
 	enemy.velocity.y -= jump_force

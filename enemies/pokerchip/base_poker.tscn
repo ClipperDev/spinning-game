@@ -4,9 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://d11adytjqs330" path="res://enemies/pokerchip/redpoker.png" id="2_ivgvl"]
 [ext_resource type="Script" uid="uid://bhsx2ck3idi4e" path="res://player/player2/state_machine.gd" id="3_1ak7o"]
 [ext_resource type="Script" uid="uid://d07w7diyg6p66" path="res://enemies/pokerchip/states/poker_walk.gd" id="4_wh7bk"]
+[ext_resource type="Script" uid="uid://c2fa0kn5k2tdj" path="res://enemies/pokerchip/poker_run.gd" id="4_xu30f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_caei2"]
 radius = 44.911022
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yffdw"]
+radius = 39.012817
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qr2go"]
+radius = 52.009613
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_yffdw"]
+a = Vector2(-600, 0)
+b = Vector2(600, 0)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yffdw"]
 animations = [{
@@ -19,17 +30,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yffdw"]
-radius = 39.012817
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_qr2go"]
-radius = 52.009613
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_yffdw"]
-a = Vector2(-600, 0)
-b = Vector2(600, 0)
-
-[node name="base_poker" type="CharacterBody2D" unique_id=423833925]
+[node name="base_poker" type="CharacterBody2D" unique_id=423833925 groups=["enemy"]]
 script = ExtResource("1_ujdfk")
 walk_speed = 130.0
 
@@ -43,12 +44,14 @@ state_acceleration = 300.0
 state_friction = 300.0
 id = &"walk"
 
+[node name="run" type="Node" parent="movement_machine" unique_id=2122964832]
+script = ExtResource("4_xu30f")
+state_acceleration = 400.0
+state_friction = 300.0
+id = &"run"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=748278101]
 shape = SubResource("CircleShape2D_caei2")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=579358873]
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_yffdw")
 
 [node name="hitbox" type="Area2D" parent="." unique_id=2063577307]
 
@@ -68,5 +71,16 @@ shape = SubResource("SegmentShape2D_yffdw")
 [node name="direction_timer" type="Timer" parent="." unique_id=1221011610]
 autostart = true
 
+[node name="aggro_timer" type="Timer" parent="." unique_id=1345300396]
+wait_time = 10.0
+one_shot = true
+
+[node name="body" type="Node2D" parent="." unique_id=1831965452]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="body" unique_id=579358873]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_yffdw")
+
 [connection signal="area_entered" from="detection_range" to="." method="_on_detection_range_area_entered"]
 [connection signal="timeout" from="direction_timer" to="." method="_on_direction_timer_timeout"]
+[connection signal="timeout" from="aggro_timer" to="movement_machine/run" method="_on_aggro_timer_timeout"]

@@ -7,9 +7,11 @@ func enter(_data: Variant) -> void:
 	
 func physics_state(delta: float) -> StringName:
 	handle_movement(enemy.direction, delta)
-	print(enemy.direction)
 	enemy.move_and_slide()
 	gravity_fall()
 	handle_rolling(delta)
+	
+	if enemy.alert:
+		return &"run"
 	
 	return NO_STATE
