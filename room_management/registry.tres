@@ -8,5 +8,6 @@ ROOM_PATHS = Dictionary[StringName, String]({
 &"proto_01": "res://room_management/rooms/proto_01.tscn",
 &"proto_02": "res://room_management/rooms/proto_02.tscn",
 &"proto_03": "res://room_management/rooms/proto_03.tscn",
-&"proto_04": "res://room_management/rooms/proto_04.tscn"
+&"proto_04": "res://room_management/rooms/proto_04.tscn",
+&"proto_05": "res://room_management/rooms/proto_05.tscn"
 })

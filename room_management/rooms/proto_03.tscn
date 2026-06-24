@@ -32,6 +32,11 @@ room_id = &"proto_04"
 door_index = 1
 metadata/_custom_type_script = "uid://dleif5scyhx46"
 
+[sub_resource type="Resource" id="Resource_qa03k"]
+script = ExtResource("4_xdxnd")
+room_id = &"proto_05"
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
 [node name="Proto_03" type="Node2D" unique_id=1177476960 node_paths=PackedStringArray("doors")]
 script = ExtResource("1_1y6wq")
 room_id = &"proto_03"
@@ -55,6 +60,6 @@ metadata/_custom_type_script = "uid://2w4yr1ht5pv2"
 [node name="DoorMarker2" type="Marker2D" parent="." unique_id=790153460]
 position = Vector2(1512, -24)
 script = ExtResource("3_qa03k")
-possible_rooms = Array[ExtResource("4_xdxnd")]([SubResource("Resource_kbvng"), SubResource("Resource_er5pc"), SubResource("Resource_po3jq")])
+possible_rooms = Array[ExtResource("4_xdxnd")]([SubResource("Resource_kbvng"), SubResource("Resource_er5pc"), SubResource("Resource_po3jq"), SubResource("Resource_qa03k")])
 door_id = 1
 metadata/_custom_type_script = "uid://2w4yr1ht5pv2"

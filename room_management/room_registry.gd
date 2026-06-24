@@ -1,3 +1,4 @@
+@tool
 extends Node
 ## Handles Caching and Access of Rooms
 ## A Resource containing all the paths to rooms, with their respective ID's in a dictionary
