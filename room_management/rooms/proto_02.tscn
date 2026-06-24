@@ -16,6 +16,18 @@ room_id = &"proto_03"
 door_index = 1
 metadata/_custom_type_script = "uid://dleif5scyhx46"
 
+[sub_resource type="Resource" id="Resource_yrgu5"]
+script = ExtResource("4_b306u")
+room_id = &"proto_04"
+door_index = 2
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_p6w7y"]
+script = ExtResource("4_b306u")
+room_id = &"proto_02"
+door_index = 1
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
 [sub_resource type="Resource" id="Resource_367co"]
 script = ExtResource("4_b306u")
 room_id = &"proto_04"
@@ -37,6 +49,11 @@ script = ExtResource("4_b306u")
 room_id = &"proto_05"
 metadata/_custom_type_script = "uid://dleif5scyhx46"
 
+[sub_resource type="Resource" id="Resource_yv7hu"]
+script = ExtResource("4_b306u")
+room_id = &"proto_02"
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
 [node name="Proto_02" type="Node2D" unique_id=1177476960 node_paths=PackedStringArray("doors")]
 script = ExtResource("1_xxp3d")
 room_id = &"proto_02"
@@ -54,12 +71,12 @@ tile_set = ExtResource("2_b306u")
 [node name="DoorMarker" type="Marker2D" parent="." unique_id=1408073110]
 position = Vector2(24, 264)
 script = ExtResource("3_xq2he")
-possible_rooms = Array[ExtResource("4_b306u")]([SubResource("Resource_qa03k"), SubResource("Resource_b306u")])
+possible_rooms = Array[ExtResource("4_b306u")]([SubResource("Resource_qa03k"), SubResource("Resource_b306u"), SubResource("Resource_yrgu5"), SubResource("Resource_p6w7y")])
 metadata/_custom_type_script = "uid://2w4yr1ht5pv2"
 
 [node name="DoorMarker2" type="Marker2D" parent="." unique_id=1266728292]
 position = Vector2(1416, 840)
 script = ExtResource("3_xq2he")
-possible_rooms = Array[ExtResource("4_b306u")]([SubResource("Resource_367co"), SubResource("Resource_xq2he"), SubResource("Resource_w3kn3"), SubResource("Resource_vi0we")])
+possible_rooms = Array[ExtResource("4_b306u")]([SubResource("Resource_367co"), SubResource("Resource_xq2he"), SubResource("Resource_w3kn3"), SubResource("Resource_vi0we"), SubResource("Resource_yv7hu")])
 door_id = 1
 metadata/_custom_type_script = "uid://2w4yr1ht5pv2"

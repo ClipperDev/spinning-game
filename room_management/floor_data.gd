@@ -1,5 +1,8 @@
 class_name FloorData extends Resource
 
-@export var floor_index: int = 0
-@export var starting_room_id: StringName
-@export var final_room_id: StringName
+@export var FLOOR_LENGTH: int = 8
+@export var BRANCH_CHANCE: float = 0.5
+@export var MAX_BRANCH_DEPTH: int = 2
+@export var MIN_BRANCH_LENGTH: int = 1
+@export var MAX_BRANCH_LENGTH: int = 3
+@export var CELL_SIZE: Vector2 = Vector2(1280, 720)
