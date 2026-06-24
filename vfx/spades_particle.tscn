@@ -13,9 +13,9 @@ gradient = SubResource("Gradient_xh6lp")
 particle_flag_disable_z = true
 angle_min = -179.99998
 angle_max = 18.000011
-inherit_velocity_ratio = 1.0
-spread = 56.219
-initial_velocity_max = 9.0
+spread = 180.0
+initial_velocity_min = 38.629997
+initial_velocity_max = 51.92
 angular_velocity_min = -1.6093254e-05
 angular_velocity_max = 61.799984
 gravity = Vector3(0, 0, 0)
@@ -23,7 +23,7 @@ radial_accel_min = 5.1499977
 radial_accel_max = 8.579998
 scale_min = 0.19999999
 scale_max = 0.19999999
-color = Color(0.17711997, 0.13120002, 0.82, 1)
+color = Color(0.1764706, 0.12941177, 0.81960785, 1)
 color_ramp = SubResource("GradientTexture1D_8vrlf")
 
 [node name="spades_hollow_particle" type="GPUParticles2D" unique_id=751571000]

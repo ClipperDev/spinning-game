@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://qt3nrkcmyc4c" path="res://wheel_slots/basic.tres" id="14_yxpg6"]
 [ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="15_vmcio"]
 [ext_resource type="Resource" uid="uid://cjrxxdyi43ats" path="res://wheel_slots/default_jackpot.tres" id="16_2yl1l"]
+[ext_resource type="Resource" uid="uid://dou2o861mh1ee" path="res://wheel_slots/hearts_healing.tres" id="16_vmcio"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ebec5"]
 atlas = ExtResource("9_3pimp")
@@ -236,7 +237,7 @@ _data = {
 &"walk_forwards": SubResource("Animation_jleqr")
 }
 
-[node name="player" type="CharacterBody2D" unique_id=1388490003]
+[node name="player" type="CharacterBody2D" unique_id=1388490003 groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_koi66")
 gravity = 14.0
@@ -310,12 +311,15 @@ position = Vector2(88, -19)
 
 [node name="gun_operator" type="Node2D" parent="." unique_id=1767012666]
 script = ExtResource("13_3pimp")
+max_ammo = 9.0
 default_bullet = ExtResource("14_yxpg6")
-normal_slots = Array[ExtResource("15_vmcio")]([null, null, null, null, null, null, null])
+normal_slots = Array[ExtResource("15_vmcio")]([ExtResource("16_vmcio"), ExtResource("16_vmcio"), ExtResource("16_vmcio"), ExtResource("16_vmcio"), ExtResource("16_vmcio"), ExtResource("16_vmcio"), ExtResource("16_vmcio")])
 jackpot_slot = ExtResource("16_2yl1l")
 current_slot = ExtResource("14_yxpg6")
 
 [node name="status_effects" type="Node2D" parent="." unique_id=627942839]
+
+[node name="passive_items" type="Node2D" parent="." unique_id=1850176559]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=452219580]
 position = Vector2(1, 9.5)

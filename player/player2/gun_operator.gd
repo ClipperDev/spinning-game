@@ -53,7 +53,7 @@ func shoot() -> void:
 func fire_bullet() -> void:
 	if ammo > 0:
 		var bullet: Area2D = current_slot.bullet.instantiate()
-		add_sibling(bullet)
+		player.add_sibling(bullet)
 		bullet.global_transform = muzzle.global_transform
 		ammo -= 1
 

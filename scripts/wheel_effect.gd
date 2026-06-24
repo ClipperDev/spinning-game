@@ -7,7 +7,21 @@ extends Node2D
 
 func _ready() -> void:
 	on_roll_specials()
+	activate()
+
+
+## overridable
+func activate() -> void:
+	pass
+
+## overridable
+func deactivate() -> void:
+	pass
 
 ## overridable. only for one time on-roll effects
 func on_roll_specials() -> void:
+	pass
+
+## overridable. for effects that trigger on shooting 
+func bullet_on_shot_effect() -> void:
 	pass

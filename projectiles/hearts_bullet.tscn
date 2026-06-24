@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://uxyvjcgn7l10"]
+
+[ext_resource type="Script" uid="uid://tqfwqms2xfyl" path="res://scripts/projectile.gd" id="1_cwao1"]
+[ext_resource type="Texture2D" uid="uid://dqksvo2uy7via" path="res://pngs/bullet_heart.png" id="2_for64"]
+[ext_resource type="PackedScene" uid="uid://bprtq5sfw1qq3" path="res://vfx/spades_particle.tscn" id="2_oe8hb"]
+[ext_resource type="PackedScene" uid="uid://mwwgis8qvnc8" path="res://vfx/spades_hit_particles.tscn" id="3_q0fv6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vivr"]
+radius = 5.0
+
+[node name="hearts_bullet" type="Area2D" unique_id=1439634672]
+collision_mask = 7
+script = ExtResource("1_cwao1")
+speed = 1000.0
+damage = 25.0
+lifetime = 5.0
+trail_vfx = ExtResource("2_oe8hb")
+explosion_vfx = ExtResource("3_q0fv6")
+metadata/_custom_type_script = "uid://tqfwqms2xfyl"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=929852227]
+shape = SubResource("CircleShape2D_1vivr")
+
+[node name="Bullet" type="Sprite2D" parent="." unique_id=406913715]
+scale = Vector2(0.25000003, 0.25)
+texture = ExtResource("2_for64")

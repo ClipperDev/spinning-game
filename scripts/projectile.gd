@@ -10,15 +10,28 @@ extends Area2D
 @export var pierces_terrain = false 
 @export var lifetime = 10.0
 
+# particles are moving with the bullet
+@export var trail_vfx: PackedScene
+# this is the particles node reference
+var cur_trail: GPUParticles2D
+@export var explosion_vfx: PackedScene
+
 var lifesteal = 0.0
 var grav_builtup = 0.0
 var targets_already_hit = []
 
+@onready var player = Global.player
+
 func _ready() -> void:
 	body_entered.connect(_body_entered)
+	var trail = trail_vfx.instantiate()
+	add_sibling.call_deferred(trail)
+	cur_trail = trail
 
 func _physics_process(delta: float) -> void:
-	# moving
+	# moving the particles
+	if cur_trail:
+		cur_trail.position = self.position
 	lifetime -= delta
 	if lifetime <= 0:
 		queue_free()
@@ -30,18 +43,33 @@ func _physics_process(delta: float) -> void:
 func _body_entered(body: Node2D) -> void:
 	hit_trigger()
 	hit_trigger_entity(body)
-	#hits and stuff
+	# hits and stuff
 	if not targets_already_hit.has(body):
 		for g in body.get_groups():
 			if viable_targets.has(str(g)):
 				body.take_damage(damage, damage_type)
+				if lifesteal > 0:
+					player.heal(damage * lifesteal)
 				targets_already_hit.append(body)
 				pierce_count -= 1
 				if pierce_count <= 0:
-					queue_free()
+					delete_bullet()
 	
-	if body.is_in_group("terrain") and not pierces_terrain:
-		queue_free()
+	#if body.is_in_group("terrain") and not pierces_terrain:
+	if body is TileMapLayer and not pierces_terrain:
+		delete_bullet()
+
+func delete_bullet() -> void:
+	queue_free()
+	var explosion = explosion_vfx.instantiate()
+	add_sibling(explosion)
+	explosion.global_position = self.global_position
+	cur_trail.emitting = false
+	await get_tree().create_timer(
+		1,
+		false
+	).timeout
+	cur_trail.queue_free()
 
 ## override it with something
 func hit_trigger() -> void:
