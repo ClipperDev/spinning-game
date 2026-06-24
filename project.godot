@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="prototypejam"
-run/main_scene="uid://dhoikfhvi4vjq"
+run/main_scene="uid://bymfu3lcxrk63"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -31,6 +31,7 @@ window/stretch/mode="canvas_items"
 
 terrain=""
 enemy=""
+player=""
 
 [input]
 
