@@ -12,7 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://2cmn2ifjm5hc" path="res://player/sprites/jump.png" id="8_jleqr"]
 [ext_resource type="Texture2D" uid="uid://deoiro8ynbip6" path="res://player/sprites/walk.png" id="9_3pimp"]
 [ext_resource type="Texture2D" uid="uid://21f1xjoanekx" path="res://player/sprites/head.png" id="10_d5ddg"]
+[ext_resource type="Script" uid="uid://g68233dxmpm8" path="res://player/player2/gun_operator.gd" id="13_3pimp"]
 [ext_resource type="PackedScene" uid="uid://enbc8wrc2luc" path="res://ui/ui.tscn" id="14_3pimp"]
+[ext_resource type="Resource" uid="uid://qt3nrkcmyc4c" path="res://wheel_slots/basic.tres" id="14_yxpg6"]
+[ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="15_vmcio"]
+[ext_resource type="Resource" uid="uid://cjrxxdyi43ats" path="res://wheel_slots/default_jackpot.tres" id="16_2yl1l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ebec5"]
 atlas = ExtResource("9_3pimp")
@@ -303,6 +307,15 @@ texture = ExtResource("6_boki8")
 
 [node name="muzzle" type="Marker2D" parent="body_pivot/gun_pivot" unique_id=2028472609]
 position = Vector2(88, -19)
+
+[node name="gun_operator" type="Node2D" parent="." unique_id=1767012666]
+script = ExtResource("13_3pimp")
+default_bullet = ExtResource("14_yxpg6")
+normal_slots = Array[ExtResource("15_vmcio")]([null, null, null, null, null, null, null])
+jackpot_slot = ExtResource("16_2yl1l")
+current_slot = ExtResource("14_yxpg6")
+
+[node name="status_effects" type="Node2D" parent="." unique_id=627942839]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=452219580]
 position = Vector2(1, 9.5)

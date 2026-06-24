@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://df7e3388lfhkp" path="res://projectiles/projectile.tscn" id="1_2fakh"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jjt3o"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_2fakh"]
 resource_local_to_scene = true
 radius = 5.0
 
@@ -12,4 +12,4 @@ damage = 25.0
 lifetime = 5.0
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=381251837]
-shape = SubResource("CircleShape2D_jjt3o")
+shape = SubResource("CircleShape2D_2fakh")

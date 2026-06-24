@@ -2,9 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://dkp4a12gcwcqw" path="res://projectiles/default_jackpot_proj.tscn" id="1_f1ge1"]
 [ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="2_75hap"]
+[ext_resource type="Texture2D" uid="uid://dh2gxjwyvmw5e" path="res://pngs/wheel_segments/jackpot_zero.png" id="3_75hap"]
 
 [resource]
 script = ExtResource("2_75hap")
 item_name = "default_jackpot"
+wheel_texture = ExtResource("3_75hap")
 bullet = ExtResource("1_f1ge1")
 metadata/_custom_type_script = "uid://dhpawmqpt3vvs"

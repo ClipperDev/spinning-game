@@ -10,7 +10,7 @@ extends Area2D
 @export var pierces_terrain = false 
 @export var lifetime = 10.0
 
-var radius_mod = 1.0
+var lifesteal = 0.0
 var grav_builtup = 0.0
 var targets_already_hit = []
 

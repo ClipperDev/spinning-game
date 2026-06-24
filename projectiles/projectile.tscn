@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://df7e3388lfhkp"]
 
 [ext_resource type="Script" uid="uid://tqfwqms2xfyl" path="res://scripts/projectile.gd" id="1_wrf7x"]
+[ext_resource type="Texture2D" uid="uid://bbkxswbeq7ebf" path="res://pngs/bullet.png" id="2_ighsu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1vivr"]
 resource_local_to_scene = true
@@ -12,3 +13,7 @@ script = ExtResource("1_wrf7x")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=381251837]
 shape = SubResource("CircleShape2D_1vivr")
 debug_color = Color(1, 0.43333334, 0, 0.7294118)
+
+[node name="Bullet" type="Sprite2D" parent="." unique_id=1251299353]
+scale = Vector2(0.25000003, 0.25)
+texture = ExtResource("2_ighsu")
