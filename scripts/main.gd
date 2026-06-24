@@ -1,11 +1,14 @@
+@tool
 class_name Main extends Control
 
 const PLAYER = preload("uid://c5coxd37o8782")
-
+@export_tool_button("Generate Map")
+var map: Callable = RoomManager.generate_map
 
 
 func _ready() -> void:
 	Global.main = self
+	print()
 	
 
 	
