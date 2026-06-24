@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b4twtsva0if78" path="res://enemies/pokerchip/base_poker.tscn" id="1_t0ocw"]
 
 [node name="base_poker" unique_id=423833925 instance=ExtResource("1_t0ocw")]
-run_speed = 150.0
+run_speed = 600.0
 
 [node name="AnimatedSprite2D" parent="body" parent_id_path=PackedInt32Array(1831965452) index="0" unique_id=579358873]
 animation = &"black"

@@ -18,10 +18,6 @@ radius = 39.012817
 [sub_resource type="CircleShape2D" id="CircleShape2D_qr2go"]
 radius = 52.009613
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_yffdw"]
-a = Vector2(-600, 0)
-b = Vector2(600, 0)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_yffdw"]
 animations = [{
 "frames": [{
@@ -58,6 +54,7 @@ animations = [{
 }]
 
 [node name="base_poker" type="CharacterBody2D" unique_id=423833925 groups=["enemy"]]
+collision_layer = 4
 script = ExtResource("1_ujdfk")
 walk_speed = 130.0
 
@@ -90,16 +87,11 @@ shape = SubResource("CircleShape2D_yffdw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=1119341476]
 shape = SubResource("CircleShape2D_qr2go")
 
-[node name="detection_range" type="Area2D" parent="." unique_id=112188753]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range" unique_id=1598850340]
-shape = SubResource("SegmentShape2D_yffdw")
-
 [node name="direction_timer" type="Timer" parent="." unique_id=1221011610]
 autostart = true
 
 [node name="aggro_timer" type="Timer" parent="." unique_id=1345300396]
-wait_time = 10.0
+wait_time = 2.0
 one_shot = true
 
 [node name="body" type="Node2D" parent="." unique_id=1831965452]
@@ -109,6 +101,13 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_yffdw")
 animation = &"green"
 
-[connection signal="area_entered" from="detection_range" to="." method="_on_detection_range_area_entered"]
+[node name="left" type="RayCast2D" parent="." unique_id=1040238147]
+target_position = Vector2(-600, 0)
+collision_mask = 2
+
+[node name="right" type="RayCast2D" parent="." unique_id=1826305397]
+target_position = Vector2(600, 0)
+collision_mask = 2
+
 [connection signal="timeout" from="direction_timer" to="." method="_on_direction_timer_timeout"]
 [connection signal="timeout" from="aggro_timer" to="movement_machine/run" method="_on_aggro_timer_timeout"]
