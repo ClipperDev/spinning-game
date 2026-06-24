@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bprtq5sfw1qq3"]
+
+[ext_resource type="Texture2D" uid="uid://ca5oubksjf5e6" path="res://pngs/particles/spade_particle_1.png" id="1_4k06l"]
+
+[sub_resource type="Gradient" id="Gradient_xh6lp"]
+offsets = PackedFloat32Array(0, 0.5653595, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0.51, 0.51, 0.51, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8vrlf"]
+gradient = SubResource("Gradient_xh6lp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1vivr"]
+particle_flag_disable_z = true
+angle_min = -179.99998
+angle_max = 18.000011
+inherit_velocity_ratio = 1.0
+spread = 56.219
+initial_velocity_max = 9.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 61.799984
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 5.1499977
+radial_accel_max = 8.579998
+scale_min = 0.19999999
+scale_max = 0.19999999
+color = Color(0.17711997, 0.13120002, 0.82, 1)
+color_ramp = SubResource("GradientTexture1D_8vrlf")
+
+[node name="spades_hollow_particle" type="GPUParticles2D" unique_id=751571000]
+amount = 16
+texture = ExtResource("1_4k06l")
+process_material = SubResource("ParticleProcessMaterial_1vivr")
