@@ -2,7 +2,6 @@
 
 [ext_resource type="TileSet" uid="uid://dun726mvvq6m1" path="res://wall_tileset.tres" id="2_c576j"]
 [ext_resource type="PackedScene" uid="uid://c5coxd37o8782" path="res://player/player2/player.tscn" id="2_kbvng"]
-[ext_resource type="PackedScene" uid="uid://b0g7on7v3q77i" path="res://enemies/enemy.tscn" id="3_c576j"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yffdw"]
 

@@ -9,6 +9,7 @@ class_name Player extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var gravity: float = 10.0
+@export var extra_gravity: float = 20.0
 
 @export var jump_buffer: float
 @export var coyote_time: float

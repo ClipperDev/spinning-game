@@ -1,3 +1,44 @@
 [gd_scene format=3 uid="uid://b4twtsva0if78"]
 
+[ext_resource type="Script" uid="uid://btrkwxtl20rto" path="res://enemies/pokerchip/base_poker.gd" id="1_ujdfk"]
+[ext_resource type="Texture2D" uid="uid://d11adytjqs330" path="res://enemies/pokerchip/redpoker.png" id="2_ivgvl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_caei2"]
+radius = 44.911022
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yffdw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ivgvl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yffdw"]
+radius = 39.012817
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qr2go"]
+radius = 52.009613
+
 [node name="base_poker" type="CharacterBody2D" unique_id=423833925]
+script = ExtResource("1_ujdfk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=748278101]
+shape = SubResource("CircleShape2D_caei2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=579358873]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_yffdw")
+
+[node name="hitbox" type="Area2D" parent="." unique_id=2063577307]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=829590395]
+shape = SubResource("CircleShape2D_yffdw")
+
+[node name="hurtbox" type="Area2D" parent="." unique_id=1983365552]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=1119341476]
+shape = SubResource("CircleShape2D_qr2go")

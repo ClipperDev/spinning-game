@@ -9,7 +9,7 @@ func enter(_data: Variant) -> void:
 func physics_state(_delta: float) -> StringName:
 	
 	apply_movement(_delta, state_acceleration, state_friction)
-	gravity_fall()
+	gravity_fall(player.extra_gravity)
 	player.move_and_slide()
 	
 	if Input.is_action_just_pressed("jump"):
