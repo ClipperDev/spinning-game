@@ -1,0 +1,54 @@
+[gd_scene format=4 uid="uid://boki0swfqte23"]
+
+[ext_resource type="Script" uid="uid://bwy6ro0dm2rdq" path="res://room_management/room.gd" id="1_2qwsw"]
+[ext_resource type="TileSet" uid="uid://dun726mvvq6m1" path="res://wall_tileset.tres" id="2_fvnpk"]
+[ext_resource type="Script" uid="uid://2w4yr1ht5pv2" path="res://room_management/door_marker.gd" id="3_5mmpc"]
+[ext_resource type="Script" uid="uid://dleif5scyhx46" path="res://room_management/room_choice.gd" id="4_fvnpk"]
+
+[sub_resource type="Resource" id="Resource_hhtmo"]
+script = ExtResource("4_fvnpk")
+room_id = &"room_07"
+door_index = 1
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_7u2be"]
+script = ExtResource("4_fvnpk")
+room_id = &"room_14"
+door_index = 1
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_jxxx0"]
+script = ExtResource("4_fvnpk")
+room_id = &"room_15"
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_uigr4"]
+script = ExtResource("4_fvnpk")
+room_id = &"room_10"
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_1xwpt"]
+script = ExtResource("4_fvnpk")
+room_id = &"room_06"
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[node name="room_12" type="Node2D" unique_id=1839252303]
+script = ExtResource("1_2qwsw")
+metadata/_custom_type_script = "uid://bwy6ro0dm2rdq"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1755675826]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAP//AAAKAAEAAAAAAP7/AAAKAAEAAAAAAP3/AAAKAAEAAAAAAPz/AAAKAAEAAAAAAPv/AAAKAAEAAAAAAAIAAAAKAAEAAAABAAIAAAAKAAEAAAACAAIAAAAKAAEAAAADAAIAAAAKAAEAAAAEAAIAAAAKAAEAAAAFAAIAAAAKAAEAAAAGAAIAAAAKAAEAAAAHAAIAAAAKAAEAAAAIAAIAAAAKAAEAAAAJAAIAAAAKAAEAAAAKAAIAAAAKAAEAAAALAAIAAAAKAAEAAAAMAAIAAAAKAAEAAAANAAIAAAAKAAEAAAAOAAIAAAAKAAEAAAAPAAIAAAAKAAEAAAAQAAIAAAAKAAEAAAARAAIAAAAKAAEAAAASAAIAAAAKAAEAAAATAAIAAAAKAAEAAAATAPv/AAAKAAEAAAATAPz/AAAKAAEAAAATAP3/AAAKAAEAAAATAP7/AAAKAAEAAAATAP//AAAKAAEAAAAAAPr/AAAKAAEAAAABAPr/AAAKAAEAAAACAPr/AAAKAAEAAAADAPr/AAAKAAEAAAAEAPr/AAAKAAEAAAAFAPr/AAAKAAEAAAAGAPr/AAAKAAEAAAAHAPr/AAAKAAEAAAAIAPr/AAAKAAEAAAAJAPr/AAAKAAEAAAAKAPr/AAAKAAEAAAALAPr/AAAKAAEAAAAMAPr/AAAKAAEAAAANAPr/AAAKAAEAAAAOAPr/AAAKAAEAAAAPAPr/AAAKAAEAAAAQAPr/AAAKAAEAAAARAPr/AAAKAAEAAAASAPr/AAAKAAEAAAATAPr/AAAKAAEAAAABAP7/AAAKAAEAAAACAP7/AAAKAAEAAAASAP7/AAAKAAEAAAARAP7/AAAKAAEAAAAIAP7/AAAKAAEAAAAJAP7/AAAKAAEAAAAKAP7/AAAKAAEAAAALAP7/AAAKAAEAAAAMAP7/AAAKAAEAAAAMAP//AAAKAAEAAAAIAP//AAAKAAEAAAALAP//AAAKAAEAAAAKAP//AAAKAAEAAAAJAP//AAAKAAEAAAA=")
+tile_set = ExtResource("2_fvnpk")
+
+[node name="DoorMarker" type="Marker2D" parent="." unique_id=1572812680]
+script = ExtResource("3_5mmpc")
+possible_rooms = Array[ExtResource("4_fvnpk")]([SubResource("Resource_hhtmo"), SubResource("Resource_7u2be")])
+metadata/_custom_type_script = "uid://2w4yr1ht5pv2"
+
+[node name="DoorMarker2" type="Marker2D" parent="." unique_id=1133802543]
+position = Vector2(1920, 0)
+script = ExtResource("3_5mmpc")
+possible_rooms = Array[ExtResource("4_fvnpk")]([SubResource("Resource_jxxx0"), SubResource("Resource_uigr4"), SubResource("Resource_1xwpt")])
+door_id = 1
+metadata/_custom_type_script = "uid://2w4yr1ht5pv2"

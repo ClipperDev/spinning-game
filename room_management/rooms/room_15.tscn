@@ -1,0 +1,82 @@
+[gd_scene format=4 uid="uid://4a37wh4afv7w"]
+
+[ext_resource type="Script" uid="uid://bwy6ro0dm2rdq" path="res://room_management/room.gd" id="1_h88ia"]
+[ext_resource type="TileSet" uid="uid://dun726mvvq6m1" path="res://wall_tileset.tres" id="2_beuqf"]
+[ext_resource type="Script" uid="uid://2w4yr1ht5pv2" path="res://room_management/door_marker.gd" id="3_sgtwg"]
+[ext_resource type="Script" uid="uid://dleif5scyhx46" path="res://room_management/room_choice.gd" id="4_beuqf"]
+
+[sub_resource type="Resource" id="Resource_td0rf"]
+script = ExtResource("4_beuqf")
+room_id = &"room_05"
+door_index = 1
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_3febr"]
+script = ExtResource("4_beuqf")
+room_id = &"room_08"
+door_index = 1
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_m4lwk"]
+script = ExtResource("4_beuqf")
+room_id = &"room_11"
+door_index = 1
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_qsryh"]
+script = ExtResource("4_beuqf")
+room_id = &"room_12"
+door_index = 1
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_gwwi2"]
+script = ExtResource("4_beuqf")
+room_id = &"room_13"
+door_index = 1
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_iv2x8"]
+script = ExtResource("4_beuqf")
+room_id = &"room_06"
+door_index = 1
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_sgtwg"]
+script = ExtResource("4_beuqf")
+room_id = &"room_07"
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_uigr4"]
+script = ExtResource("4_beuqf")
+room_id = &"room_10"
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[sub_resource type="Resource" id="Resource_1xwpt"]
+script = ExtResource("4_beuqf")
+room_id = &"room_06"
+metadata/_custom_type_script = "uid://dleif5scyhx46"
+
+[node name="room_15" type="Node2D" unique_id=1616339142 node_paths=PackedStringArray("doors")]
+script = ExtResource("1_h88ia")
+room_id = &"room_15"
+doors = {
+1: NodePath("")
+}
+metadata/_custom_type_script = "uid://bwy6ro0dm2rdq"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1893711887]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAP//AAAKAAEAAAAAAP7/AAAKAAEAAAAAAAIAAAAKAAEAAAABAAIAAAAKAAEAAAACAAIAAAAKAAEAAAADAAIAAAAKAAEAAAAEAAIAAAAKAAEAAAAFAAIAAAAKAAEAAAAGAAIAAAAKAAEAAAAHAAIAAAAKAAEAAAAIAAIAAAAKAAEAAAAJAAIAAAAKAAEAAAAKAAIAAAAKAAEAAAALAAIAAAAKAAEAAAAMAAIAAAAKAAEAAAANAAIAAAAKAAEAAAAOAAIAAAAKAAEAAAAPAAIAAAAKAAEAAAAQAAIAAAAKAAEAAAARAAIAAAAKAAEAAAASAAIAAAAKAAEAAAATAAIAAAAKAAEAAAAUAAIAAAAKAAEAAAAVAAIAAAAKAAEAAAAWAAIAAAAKAAEAAAABAP7/AAAKAAEAAAACAP7/AAAKAAEAAAAAAP3/AAAKAAEAAAAAAPz/AAAKAAEAAAAAAPv/AAAKAAEAAAAAAPr/AAAKAAEAAAABAPr/AAAKAAEAAAACAPr/AAAKAAEAAAAYAP7/AAAKAAEAAAAXAAIAAAAKAAEAAAAYAAIAAAAKAAEAAAAZAAIAAAAKAAEAAAAZAP7/AAAKAAEAAAAXAP7/AAAKAAEAAAAZAPb/AAAKAAEAAAAYAPb/AAAKAAEAAAAXAPb/AAAKAAEAAAAWAPb/AAAKAAEAAAAVAPb/AAAKAAEAAAAUAPb/AAAKAAEAAAAIAAEAAAAKAAEAAAAJAAEAAAAKAAEAAAAJAAAAAAAKAAEAAAAKAAAAAAAKAAEAAAAKAP//AAAKAAEAAAAKAAEAAAAKAAEAAAALAAAAAAAKAAEAAAALAP//AAAKAAEAAAALAAEAAAAKAAEAAAALAP7/AAAKAAEAAAAMAP7/AAAKAAEAAAANAP7/AAAKAAEAAAAOAP7/AAAKAAEAAAASAP7/AAAKAAEAAAATAP7/AAAKAAEAAAADAPr/AAAKAAEAAAAEAPr/AAAKAAEAAAAFAPr/AAAKAAEAAAAGAPr/AAAKAAEAAAAHAPr/AAAKAAEAAAAIAPr/AAAKAAEAAAAJAPr/AAAKAAEAAAAKAPr/AAAKAAEAAAALAPr/AAAKAAEAAAAMAPr/AAAKAAEAAAANAPr/AAAKAAEAAAAOAPr/AAAKAAEAAAAPAPr/AAAKAAEAAAAQAPr/AAAKAAEAAAARAPr/AAAKAAEAAAASAPr/AAAKAAEAAAATAPr/AAAKAAEAAAAaAAIAAAAKAAEAAAAbAAIAAAAKAAEAAAAcAAIAAAAKAAEAAAAdAAIAAAAKAAEAAAAdAPr/AAAKAAEAAAAdAPv/AAAKAAEAAAAdAPz/AAAKAAEAAAAdAP3/AAAKAAEAAAAdAP7/AAAKAAEAAAAdAP//AAAKAAEAAAAdAAAAAAAKAAEAAAAdAAEAAAAKAAEAAAAcAPv/AAAKAAEAAAAcAPz/AAAKAAEAAAAbAPz/AAAKAAEAAAAbAP3/AAAKAAEAAAAaAP3/AAAKAAEAAAAaAP7/AAAKAAEAAAAaAP//AAAKAAEAAAAaAAAAAAAKAAEAAAAaAAEAAAAKAAEAAAAbAAEAAAAKAAEAAAAcAAEAAAAKAAEAAAAcAAAAAAAKAAEAAAAcAP//AAAKAAEAAAAcAP7/AAAKAAEAAAAcAP3/AAAKAAEAAAAbAP7/AAAKAAEAAAAbAP//AAAKAAEAAAAbAAAAAAAKAAEAAAAdAPf/AAAKAAEAAAAdAPb/AAAKAAEAAAAcAPb/AAAKAAEAAAAbAPb/AAAKAAEAAAAaAPb/AAAKAAEAAAATAPn/AAAKAAEAAAATAPj/AAAKAAEAAAATAPf/AAAKAAEAAAATAPb/AAAKAAEAAAAXAPr/AAAKAAEAAAAYAPr/AAAKAAEAAAAUAPr/AAAKAAEAAAAVAAEAAAAKAAEAAAAWAAEAAAAKAAEAAAAQAAEAAAAKAAEAAAAPAAEAAAAKAAEAAAAQAAAAAAAKAAEAAAAVAAAAAAAKAAEAAAAGAP3/AAAKAAEAAAAGAP7/AAAKAAEAAAA=")
+tile_set = ExtResource("2_beuqf")
+
+[node name="DoorMarker" type="Marker2D" parent="." unique_id=1855591286]
+script = ExtResource("3_sgtwg")
+possible_rooms = Array[ExtResource("4_beuqf")]([SubResource("Resource_td0rf"), SubResource("Resource_3febr"), SubResource("Resource_m4lwk"), SubResource("Resource_qsryh"), SubResource("Resource_gwwi2"), SubResource("Resource_iv2x8")])
+metadata/_custom_type_script = "uid://2w4yr1ht5pv2"
+
+[node name="DoorMarker2" type="Marker2D" parent="." unique_id=1900770964]
+position = Vector2(2880, -768)
+script = ExtResource("3_sgtwg")
+possible_rooms = Array[ExtResource("4_beuqf")]([SubResource("Resource_sgtwg"), SubResource("Resource_uigr4"), SubResource("Resource_1xwpt")])
+door_id = 1
+metadata/_custom_type_script = "uid://2w4yr1ht5pv2"
