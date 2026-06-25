@@ -8,6 +8,7 @@
 [resource]
 script = ExtResource("2_75hap")
 item_name = "default_jackpot"
+suit = "jackpot"
 wheel_texture = ExtResource("3_75hap")
 bullet = ExtResource("1_f1ge1")
 effects = ExtResource("2_6rvmi")

@@ -128,6 +128,72 @@ polygon = PackedVector2Array(-22.5, -147.6, -22.5, -146.3, -35.5, -145.3, -35.5,
 [node name="Wheel" type="Sprite2D" parent="wheel_components" unique_id=2035160563]
 texture = ExtResource("3_s2jd5")
 
+[node name="replace_buttons" type="Node2D" parent="wheel_components" unique_id=1490316272]
+visible = false
+
+[node name="0" type="Button" parent="wheel_components/replace_buttons" unique_id=2132506112]
+offset_left = -234.0
+offset_top = 204.0
+offset_right = -75.0
+offset_bottom = 262.0
+rotation = 0.61033165
+theme_override_font_sizes/font_size = 36
+text = "REPLACE"
+
+[node name="1" type="Button" parent="wheel_components/replace_buttons" unique_id=928119750]
+offset_left = -312.0
+offset_top = -31.000004
+offset_right = -153.0
+offset_bottom = 26.999996
+rotation = 1.3788102
+theme_override_font_sizes/font_size = 36
+text = "REPLACE"
+
+[node name="2" type="Button" parent="wheel_components/replace_buttons" unique_id=11338333]
+offset_left = -178.00002
+offset_top = -252.00003
+offset_right = -19.000015
+offset_bottom = -194.00003
+rotation = 2.2860088
+theme_override_font_sizes/font_size = 36
+text = "REPLACE"
+
+[node name="3" type="Button" parent="wheel_components/replace_buttons" unique_id=2022306198]
+offset_left = 76.0
+offset_top = -301.0
+offset_right = 235.0
+offset_bottom = -243.0
+rotation = 3.1415927
+theme_override_font_sizes/font_size = 36
+text = "REPLACE"
+
+[node name="4" type="Button" parent="wheel_components/replace_buttons" unique_id=1450272107]
+offset_left = 279.99997
+offset_top = -135.99998
+offset_right = 438.99997
+offset_bottom = -77.999985
+rotation = -2.2863812
+theme_override_font_sizes/font_size = 36
+text = "REPLACE"
+
+[node name="5" type="Button" parent="wheel_components/replace_buttons" unique_id=604837619]
+offset_left = 284.99997
+offset_top = 112.0
+offset_right = 443.99997
+offset_bottom = 170.0
+rotation = -1.399754
+theme_override_font_sizes/font_size = 36
+text = "REPLACE"
+
+[node name="6" type="Button" parent="wheel_components/replace_buttons" unique_id=1042078971]
+offset_left = 115.0
+offset_top = 288.0
+offset_right = 274.0
+offset_bottom = 346.0
+rotation = -0.6278345
+theme_override_font_sizes/font_size = 36
+text = "REPLACE"
+
 [node name="ray" type="RayCast2D" parent="." unique_id=231879114]
 position = Vector2(0, 342)
 enabled = false

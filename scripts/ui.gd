@@ -10,7 +10,7 @@ var new_color: Color = Color(1, 0, 0)
 
 
 func _process(delta: float) -> void:
-	chips.text = str(lerp(chips.text.to_int(), player.chips, 0.5))
+	chips.text = str(int(lerp(chips.text.to_int(), player.chips, 0.2)))
 	hp_bar.value = lerp(hp_bar.value, new_hp, 5.0 * delta)
 	hp_bar.tint_progress = lerp(hp_bar.tint_progress, new_color, 5.0 * delta)
 

@@ -16,7 +16,7 @@ var ammo: int = max_ammo
 @export var bullet_size_mod = 1.0
 
 # tied to fire rate, can only shoot if it's recharged
-var shot_charged = false
+var shot_ready = true
 # to not overlap multiple reloads
 var reloading = false
 # to not overlap multiple spins
@@ -28,7 +28,7 @@ var spinning = false
 func _input(event: InputEvent) -> void:
 	# shooting
 	if event.is_action_pressed("fire"):
-		if shot_charged == true:
+		if shot_ready == true:
 			shoot()
 	# reloading. add animation later
 	if event.is_action_pressed("reload"):
@@ -73,12 +73,12 @@ func reload() -> void:
 #fire bullet, then wait for 1 / fire rate before shooting again
 func shoot() -> void:
 	fire_bullet()
-	shot_charged = false
+	shot_ready = false
 	await get_tree().create_timer(
 		1.0 / fire_rate,
 		false
 	).timeout
-	shot_charged = true
+	shot_ready = true
 
 
 func fire_bullet() -> void:
@@ -100,4 +100,4 @@ func replace_wheel_section(section: WheelSlot, slot: int, jackpot: bool = false)
 		jackpot_slot = section
 	else:
 		normal_slots[slot] = section
-		
+	player.ui.update_slots_icons(section, slot)

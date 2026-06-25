@@ -16,8 +16,16 @@ var step = steps.INACTIVE
 var spin_time_left: float
 var spin_vel: float
 
+var replacing_sections = false
+var stored_wheel_for_replace: WheelSlot
+
 @onready var wheel = $wheel_components
 @onready var ray =  $ray
+@onready var replace_buttons = $wheel_components/replace_buttons
+
+func _ready() -> void:
+	for i in replace_buttons.get_children():
+		i.button_down.connect(replace)
 
 func spin() -> void:
 	step = steps.ACCEL
@@ -56,6 +64,18 @@ func determine_result() -> int:
 	
 	return slot_id
 
+func start_replacing(wheel_slot) -> void:
+	stored_wheel_for_replace = wheel_slot
+	replacing_sections = true
+
+func replace() -> void:
+	if replacing_sections != true: return
+	for i in replace_buttons.get_children():
+		if i.pressed:
+			var slot = i.get_index()
+			Global.player.get_node("gun_operator").replace_wheel_section(stored_wheel_for_replace, slot)
+			replacing_sections = false
+			stored_wheel_for_replace = null
 
 func replace_visual_slot(new_section: WheelSlot, slot: int) -> void:
 	wheel.get_child(slot + 1).texture = new_section.wheel_texture
