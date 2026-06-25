@@ -2,14 +2,17 @@ extends Control
 
 @onready var wheel = $CanvasLayer/wheel
 @onready var hp_bar = $CanvasLayer/hp_bar
+@onready var chips = $CanvasLayer/chips
+@onready var player = Global.player
 
 var new_hp = 100.0
 var new_color: Color = Color(1, 0, 0)
 
 
 func _process(delta: float) -> void:
-	hp_bar.value = lerp(hp_bar.value, new_hp, 3 * delta)
-	hp_bar.tint_progress = lerp(hp_bar.tint_progress, new_color, 3 * delta)
+	chips.text = str(player.chips)
+	hp_bar.value = lerp(hp_bar.value, new_hp, 5.0 * delta)
+	hp_bar.tint_progress = lerp(hp_bar.tint_progress, new_color, 5.0 * delta)
 
 #should update the wheel when called
 func update_slots_icons(slot: WheelSlot, id: int) -> void:

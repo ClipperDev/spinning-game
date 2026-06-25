@@ -11,6 +11,7 @@ class_name Player extends CharacterBody2D
 ## hp is in the player for now
 @export var max_hp: float = 100.0
 var hp = max_hp
+@export var chips: int = 100
 
 @export var gravity: float = 10.0
 
