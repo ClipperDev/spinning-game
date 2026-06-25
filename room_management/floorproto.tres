@@ -4,6 +4,10 @@
 
 [resource]
 script = ExtResource("1_srvhd")
+FLOOR_LENGTH = 6
 BRANCH_CHANCE = 0.4
-MAX_BRANCH_DEPTH = 4
+DOUBLE_BRANCH_CHANCE = 0.1
+MAX_BRANCH_DEPTH = 5
+MIN_ROOMS = 14
+MAX_ROOMS = 22
 metadata/_custom_type_script = "uid://ddkpmkfbewtpa"

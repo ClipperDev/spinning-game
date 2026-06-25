@@ -24,7 +24,10 @@ func _ready() -> void:
 	add_child(Global.camera)
 
 func regen_map() -> void:
+	rng.randomize()
 	graph = map_gen.generate_graph(rng, FLOORPROTO)
+	if graph == null:
+		return
 	queue_redraw()
 
 func get_color(type: RoomGraph.RoomType) -> Color:
@@ -35,14 +38,26 @@ func get_color(type: RoomGraph.RoomType) -> Color:
 			return Color(1, 0, 0)
 		RoomGraph.RoomType.REST:
 			return Color(0, 1, 0)
+		RoomGraph.RoomType.SHOP:
+			return Color(0.7, 0.1, 0.4)
 	return Color(1, 1, 0)
 
 func _draw() -> void:
+	if graph == null:
+		return
+	var cell_size: Vector2 = Vector2(1280, 720) / 10.0
+	
+	for node in graph.nodes.values():
+		node = node as RoomGraph.RoomNode
+		var pos: Vector2 = Vector2(node.coords.x * cell_size.x, node.coords.y * cell_size.y)
+		draw_rect(Rect2(pos, cell_size), get_color(node.type), true)
+		draw_rect(Rect2(pos, cell_size), Color.WHITE, false, 4)
 	
 	
 	for node in graph.nodes.values():
 		node = node as RoomGraph.RoomNode
-		var pos_a: Vector2 = Vector2(node.coords.x * 1280/10.0, node.coords.y * 720/10.0)
-		var size_a: Vector2 = Vector2(1280, 720) / 10.0
-		draw_rect(Rect2(pos_a, size_a), get_color(node.type), true)
-		draw_rect(Rect2(pos_a, size_a), Color.WHITE, false, 4)
+		var center_a: Vector2 = Vector2(node.coords.x * cell_size.x, node.coords.y * cell_size.y) + cell_size / 2.0
+		for neighbor_id in node.connections:
+			var neighbor: RoomGraph.RoomNode = graph.nodes[neighbor_id]
+			var center_b: Vector2 = Vector2(neighbor.coords.x * cell_size.x, neighbor.coords.y * cell_size.y) + cell_size / 2.0
+			draw_line(center_a, center_b, Color.BLACK, 8.0)

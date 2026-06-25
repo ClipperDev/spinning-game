@@ -1,6 +1,6 @@
 class_name RoomGraph extends RefCounted
 
-enum RoomType {START, COMBAT, REST, BOSS}
+enum RoomType {START, COMBAT, REST, BOSS, SHOP}
 
 class RoomNode:
 	var id: int
@@ -10,7 +10,8 @@ class RoomNode:
 	var world_pos: Vector2 = Vector2.ZERO
 	var scene_id: StringName = ""
 	var placed: bool = false
-	
+
+var start: RoomNode
 var nodes: Dictionary[int, RoomNode] = {}
 var next_id: int
 var occupied: Dictionary[Vector2i, RoomNode] = {}
