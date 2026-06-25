@@ -1,19 +1,26 @@
 [gd_scene format=3 uid="uid://dkp4a12gcwcqw"]
 
 [ext_resource type="PackedScene" uid="uid://df7e3388lfhkp" path="res://projectiles/projectile.tscn" id="1_moyjd"]
+[ext_resource type="PackedScene" uid="uid://cexg23tohvcoc" path="res://vfx/zero_particle.tscn" id="2_05xtw"]
+[ext_resource type="PackedScene" uid="uid://d4b48bj3oi8d" path="res://vfx/zero_hit_particles.tscn" id="3_sdoit"]
+[ext_resource type="Texture2D" uid="uid://cdbr8ft8cqdqq" path="res://pngs/bullet_zero.png" id="4_0246l"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
-radius = 14.0
-height = 332.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_y163a"]
+resource_local_to_scene = true
+radius = 5.0
 
 [node name="default_jackpot_proj" unique_id=802680176 instance=ExtResource("1_moyjd")]
-speed = 1200.0
-damage = 150.0
+speed = 1250.0
+damage = 50.0
 pierce_count = 50
-pierces_terrain = true
 lifetime = 3.0
+trail_vfx = ExtResource("2_05xtw")
+explosion_vfx = ExtResource("3_sdoit")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=381251837]
 rotation = -1.5707964
-shape = SubResource("CapsuleShape2D_1vivr")
+shape = SubResource("CircleShape2D_y163a")
 debug_color = Color(0, 0.95000005, 1, 0.7294118)
+
+[node name="Bullet" parent="." index="1" unique_id=1251299353]
+texture = ExtResource("4_0246l")

@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://tqfwqms2xfyl" path="res://scripts/projectile.gd" id="1_cwao1"]
 [ext_resource type="Texture2D" uid="uid://dqksvo2uy7via" path="res://pngs/bullet_heart.png" id="2_for64"]
-[ext_resource type="PackedScene" uid="uid://bprtq5sfw1qq3" path="res://vfx/spades_particle.tscn" id="2_oe8hb"]
-[ext_resource type="PackedScene" uid="uid://mwwgis8qvnc8" path="res://vfx/spades_hit_particles.tscn" id="3_q0fv6"]
+[ext_resource type="PackedScene" uid="uid://b2jridbdysa1k" path="res://vfx/hearts_particle.tscn" id="2_oe8hb"]
+[ext_resource type="PackedScene" uid="uid://baxmp1rfaqy5g" path="res://vfx/hearts_hit_particles.tscn" id="3_q0fv6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1vivr"]
+resource_local_to_scene = true
 radius = 5.0
 
 [node name="hearts_bullet" type="Area2D" unique_id=1439634672]

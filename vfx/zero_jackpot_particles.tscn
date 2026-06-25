@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://3c82pg8m5fcf"]
+
+[ext_resource type="Texture2D" uid="uid://d0l37yj3mlwgq" path="res://pngs/particles/particle_burn_1.png" id="1_e53og"]
+
+[sub_resource type="Curve" id="Curve_qbdty"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_v5gy4"]
+curve = SubResource("Curve_qbdty")
+
+[sub_resource type="Curve" id="Curve_d2pp6"]
+_data = [Vector2(0.010752678, 0.9910715), 0.0, 0.0, 0, 0, Vector2(1, 0), -6.7001247, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_auskg"]
+curve = SubResource("Curve_d2pp6")
+
+[sub_resource type="Curve" id="Curve_wtlle"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0.037634403, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8vrlf"]
+curve = SubResource("Curve_wtlle")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1vivr"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(24, 56, 0)
+direction = Vector3(0, -1, 0)
+spread = 60.0
+initial_velocity_min = 47.21
+initial_velocity_max = 64.38
+gravity = Vector3(0, -196, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = -2.2351742e-06
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+color = Color(0.14999998, 1, 0.24916673, 1)
+alpha_curve = SubResource("CurveTexture_v5gy4")
+emission_curve = SubResource("CurveTexture_auskg")
+hue_variation_min = 0.019999977
+hue_variation_max = 0.09999997
+hue_variation_curve = SubResource("CurveTexture_8vrlf")
+
+[node name="zero_jackpot_particles" type="GPUParticles2D" unique_id=1815107637]
+amount = 40
+texture = ExtResource("1_e53og")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_1vivr")

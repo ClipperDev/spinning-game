@@ -60,16 +60,17 @@ func _body_entered(body: Node2D) -> void:
 		delete_bullet()
 
 func delete_bullet() -> void:
+	var t = get_tree().create_timer(
+		1,
+		false
+	)
+	t.timeout.connect(cur_trail.queue_free)
 	queue_free()
 	var explosion = explosion_vfx.instantiate()
 	add_sibling(explosion)
 	explosion.global_position = self.global_position
 	cur_trail.emitting = false
-	await get_tree().create_timer(
-		1,
-		false
-	).timeout
-	cur_trail.queue_free()
+	
 
 ## override it with something
 func hit_trigger() -> void:

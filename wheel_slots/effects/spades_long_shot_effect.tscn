@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b0o88d3f328m0"]
+
+[ext_resource type="Script" uid="uid://bb0iw7js8ht03" path="res://scripts/spades_long_shot_effect.gd" id="1_cgktm"]
+
+[node name="spades_long_shot_effect" type="Node2D" unique_id=994707879]
+script = ExtResource("1_cgktm")
+metadata/_custom_type_script = "uid://b5ij2w5s4xb84"

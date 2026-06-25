@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://qt3nrkcmyc4c" path="res://wheel_slots/basic.tres" id="14_yxpg6"]
 [ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="15_vmcio"]
 [ext_resource type="Resource" uid="uid://cjrxxdyi43ats" path="res://wheel_slots/default_jackpot.tres" id="16_2yl1l"]
+[ext_resource type="Resource" uid="uid://blj63kxp6co3s" path="res://wheel_slots/spades_long_shot.tres" id="16_sjvjn"]
 [ext_resource type="Resource" uid="uid://dou2o861mh1ee" path="res://wheel_slots/hearts_healing.tres" id="16_vmcio"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ebec5"]
@@ -311,9 +312,8 @@ position = Vector2(88, -19)
 
 [node name="gun_operator" type="Node2D" parent="." unique_id=1767012666]
 script = ExtResource("13_3pimp")
-max_ammo = 9.0
 default_bullet = ExtResource("14_yxpg6")
-normal_slots = Array[ExtResource("15_vmcio")]([ExtResource("16_vmcio"), ExtResource("16_vmcio"), ExtResource("16_vmcio"), ExtResource("16_vmcio"), ExtResource("16_vmcio"), ExtResource("16_vmcio"), ExtResource("16_vmcio")])
+normal_slots = Array[ExtResource("15_vmcio")]([ExtResource("16_sjvjn"), ExtResource("16_vmcio"), ExtResource("16_sjvjn"), ExtResource("16_vmcio"), ExtResource("16_sjvjn"), ExtResource("16_vmcio"), ExtResource("16_sjvjn")])
 jackpot_slot = ExtResource("16_2yl1l")
 current_slot = ExtResource("14_yxpg6")
 

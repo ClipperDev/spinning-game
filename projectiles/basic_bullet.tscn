@@ -1,15 +1,19 @@
 [gd_scene format=3 uid="uid://d2gbbwwlxpbeq"]
 
 [ext_resource type="PackedScene" uid="uid://df7e3388lfhkp" path="res://projectiles/projectile.tscn" id="1_2fakh"]
+[ext_resource type="PackedScene" uid="uid://dj4hbd6gje8ga" path="res://vfx/basic_bullet_particle.tscn" id="2_8l0ci"]
+[ext_resource type="PackedScene" uid="uid://cgfgspnp4sv10" path="res://vfx/basic_bullets_hit_particles.tscn" id="3_8msbv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2fakh"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2e88"]
 resource_local_to_scene = true
 radius = 5.0
 
 [node name="basic_bullet" unique_id=802680176 instance=ExtResource("1_2fakh")]
-speed = 500.0
+speed = 1000.0
 damage = 25.0
 lifetime = 5.0
+trail_vfx = ExtResource("2_8l0ci")
+explosion_vfx = ExtResource("3_8msbv")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=381251837]
-shape = SubResource("CircleShape2D_2fakh")
+shape = SubResource("CircleShape2D_h2e88")
