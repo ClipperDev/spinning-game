@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://mlid76083f6f"]
+
+[ext_resource type="PackedScene" uid="uid://3c82pg8m5fcf" path="res://vfx/zero_jackpot_particles.tscn" id="1_aqb7l"]
+[ext_resource type="Script" uid="uid://bxoxwfxeayt61" path="res://scripts/zero_heal_effect.gd" id="1_wpcgm"]
+
+[node name="zero_heal_effect" type="Node2D" unique_id=2113738086]
+script = ExtResource("1_wpcgm")
+
+[node name="zero_jackpot_particles" parent="." unique_id=1815107637 instance=ExtResource("1_aqb7l")]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dr4b42u6fawfv"]
+
+[ext_resource type="Script" uid="uid://iltoajuvcayt" path="res://wheel_slots/effects/zero_jackpot_effect.gd" id="1_deoyn"]
+
+[node name="zero_jackpot_effect" type="Node2D" unique_id=1704020932]
+script = ExtResource("1_deoyn")
+ammo_mod = 9
+metadata/_custom_type_script = "uid://b5ij2w5s4xb84"

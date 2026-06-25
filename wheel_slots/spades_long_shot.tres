@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cyerwrn434qjw" path="res://projectiles/spades_bullet.tscn" id="1_rb7qt"]
 [ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="2_3pxci"]
+[ext_resource type="PackedScene" uid="uid://b0o88d3f328m0" path="res://wheel_slots/effects/spades_long_shot_effect.tscn" id="2_mqpgs"]
 [ext_resource type="Texture2D" uid="uid://davs1h11fhc3d" path="res://pngs/wheel_segments/spade1.png" id="3_mqpgs"]
 
 [resource]
@@ -10,4 +11,5 @@ item_name = "spades_long_shot"
 suit = "spades"
 wheel_texture = ExtResource("3_mqpgs")
 bullet = ExtResource("1_rb7qt")
+effects = ExtResource("2_mqpgs")
 metadata/_custom_type_script = "uid://dhpawmqpt3vvs"
