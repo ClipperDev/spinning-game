@@ -42,7 +42,7 @@ func _draw() -> void:
 	
 	for node in graph.nodes.values():
 		node = node as RoomGraph.RoomNode
-		var pos_a: Vector2 = Vector2(node.world_pos.x * 1280/10.0, node.world_pos.y * 720/10.0)
+		var pos_a: Vector2 = Vector2(node.coords.x * 1280/10.0, node.coords.y * 720/10.0)
 		var size_a: Vector2 = Vector2(1280, 720) / 10.0
 		draw_rect(Rect2(pos_a, size_a), get_color(node.type), true)
 		draw_rect(Rect2(pos_a, size_a), Color.WHITE, false, 4)

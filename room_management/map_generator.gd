@@ -6,21 +6,20 @@ func generate_graph(rng: RandomNumberGenerator, floor_data: FloorData) -> RoomGr
 	var main_path: Array[RoomGraph.RoomNode] = []
 	for depth in range(floor_data.FLOOR_LENGTH):
 		var type: RoomGraph.RoomType = _pick_room_type(depth, floor_data.FLOOR_LENGTH)
-		var node: RoomGraph.RoomNode = graph.try_add_node(type, depth, 0)
-		if node == null:
-			continue
-		node.world_pos = Vector2(depth, 0)
+		var node: RoomGraph.RoomNode = graph.try_add_node(type, Vector2i(depth, 0))
 		if main_path.size() > 0:
 			graph.connect_nodes(main_path.back().id, node.id)
 		main_path.append(node)
 		
 	for i in range(1, main_path.size() - 1):
-		if rng.randf() <= floor_data.BRANCH_CHANCE:
+		var roll: float = rng.randf()
+		if roll <= floor_data.BRANCH_CHANCE:
 			var dir: int = 1 if rng.randf() > 0.5 else -1
 			_generate_branch(graph, rng, main_path[i], dir, 1, floor_data)
+			if roll <= floor_data.BRANCH_CHANCE / 4.0:
+				_generate_branch(graph, rng, main_path[i], -dir, 1, floor_data)
 			
-		
-	
+			
 		
 	return graph
 
@@ -37,10 +36,9 @@ floor_data: FloorData) -> void:
 	var horizontal_dir: int = -1 if randf() <= 0.5 else 1
 	for i in range(branch_length):
 		var type: RoomGraph.RoomType = RoomGraph.RoomType.COMBAT
-		var node: RoomGraph.RoomNode = graph.try_add_node(type, parent.depth + i * horizontal_dir, lane)
+		var node: RoomGraph.RoomNode = graph.try_add_node(type, Vector2i(parent.coords.x + i * horizontal_dir, lane * direction))
 		if node == null:
 			break
-		node.world_pos = Vector2(parent.depth + i * horizontal_dir, direction * lane)
 		if branch_path.size() > 0:
 			graph.connect_nodes(branch_path.back().id, node.id)
 		branch_path.append(node)

@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_srvhd")
-BRANCH_CHANCE = 0.7
-MAX_BRANCH_DEPTH = 16
+BRANCH_CHANCE = 0.4
+MAX_BRANCH_DEPTH = 4
 metadata/_custom_type_script = "uid://ddkpmkfbewtpa"
