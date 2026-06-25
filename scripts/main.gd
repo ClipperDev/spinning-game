@@ -40,6 +40,7 @@ func get_color(type: RoomGraph.RoomType) -> Color:
 			return Color(0, 1, 0)
 		RoomGraph.RoomType.SHOP:
 			return Color(0.7, 0.1, 0.4)
+		
 	return Color(1, 1, 0)
 
 func _draw() -> void:

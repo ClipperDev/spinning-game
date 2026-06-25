@@ -8,6 +8,7 @@ FLOOR_LENGTH = 6
 BRANCH_CHANCE = 0.4
 DOUBLE_BRANCH_CHANCE = 0.1
 MAX_BRANCH_DEPTH = 5
+MAX_BRANCH_LENGTH = 2
 MIN_ROOMS = 14
 MAX_ROOMS = 22
 metadata/_custom_type_script = "uid://ddkpmkfbewtpa"

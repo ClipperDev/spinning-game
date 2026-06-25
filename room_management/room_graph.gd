@@ -12,6 +12,9 @@ class RoomNode:
 	var placed: bool = false
 
 var start: RoomNode
+var shop: RoomNode
+var boss: RoomNode
+var rest: RoomNode
 var nodes: Dictionary[int, RoomNode] = {}
 var next_id: int
 var occupied: Dictionary[Vector2i, RoomNode] = {}

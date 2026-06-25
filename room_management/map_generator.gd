@@ -10,8 +10,8 @@ func generate_graph(rng: RandomNumberGenerator, floor_data: FloorData) -> RoomGr
 		if count >= floor_data.MIN_ROOMS and count <= floor_data.MAX_ROOMS:
 			attempts += 1
 			_assign_boss(graph, rng)
-			if not _assign_shop(graph, rng):
-				continue
+			if not _assign_shop(graph, rng): continue
+			if not _assign_rest(graph, rng): continue
 			print_rich("[color=green]Finished on attempt -> ", attempts)
 			print_rich("[color=white]Room Count -> [color=yellow]", count)
 			return graph
@@ -128,7 +128,9 @@ func _assign_boss(graph: RoomGraph, rng: RandomNumberGenerator) -> void:
 		)
 
 	assert(not eligible.is_empty(), "COULD NOT GENERATE BOSS ROOM")
-	eligible[rng.randi_range(0, eligible.size() - 1)].type = RoomGraph.RoomType.BOSS
+	var boss: RoomGraph.RoomNode = eligible[rng.randi_range(0, eligible.size() - 1)]
+	boss.type = RoomGraph.RoomType.BOSS
+	graph.boss = boss
 
 func _assign_shop(graph: RoomGraph, rng: RandomNumberGenerator) -> bool:
 	
@@ -146,5 +148,45 @@ func _assign_shop(graph: RoomGraph, rng: RandomNumberGenerator) -> bool:
 		
 	if candidates.is_empty(): return false
 	
-	candidates[rng.randi_range(0, candidates.size() - 1)].type = RoomGraph.RoomType.SHOP
+	var shop: RoomGraph.RoomNode = candidates[rng.randi_range(0, candidates.size() - 1)]
+	shop.type = RoomGraph.RoomType.SHOP
+	graph.shop = shop
+	return true
+
+func _assign_rest(graph: RoomGraph, rng: RandomNumberGenerator) -> bool:
+	
+	var boss: RoomGraph.RoomNode = graph.boss
+	if boss == null:
+		return false
+	var threshold: float = graph.start.coords.distance_to(boss.coords) * 0.8
+	var candidates: Array[RoomGraph.RoomNode] = []
+	for node in graph.nodes.values():
+		node = node as RoomGraph.RoomNode
+	
+		if node.type != RoomGraph.RoomType.COMBAT: continue
+		
+		if node.connections.size() == 2:
+			if !(graph.nodes[node.connections[0]].coords.y == node.coords.y and 
+			graph.nodes[node.connections[1]].coords.y == node.coords.y):
+				continue
+			if graph.nodes[node.connections[0]].type == RoomGraph.RoomType.BOSS or graph.nodes[node.connections[1]].type == RoomGraph.RoomType.BOSS:
+				continue
+			if graph.nodes[node.connections[0]].type == RoomGraph.RoomType.SHOP or graph.nodes[node.connections[1]].type == RoomGraph.RoomType.SHOP:
+				continue
+		elif node.connections.size() == 1:
+			if graph.nodes[node.connections[0]].coords.y != node.coords.y:
+				continue
+		else:
+			continue
+		if not graph.start.coords.distance_to(node.coords) >= threshold:
+			continue
+		
+		candidates.append(node)
+		
+	if candidates.is_empty(): return false
+	
+	var rest: RoomGraph.RoomNode = candidates[rng.randi_range(0, candidates.size() - 1)]
+	rest.type = RoomGraph.RoomType.REST
+	graph.rest = rest
+	
 	return true
