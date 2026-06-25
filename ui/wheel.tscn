@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://davs1h11fhc3d" path="res://pngs/wheel_segments/spade1.png" id="2_s2jd5"]
 [ext_resource type="Texture2D" uid="uid://wilnel51h6l6" path="res://pngs/wheel_segments/heart1.png" id="3_kma0d"]
 [ext_resource type="Texture2D" uid="uid://bqs4jf1d0vylj" path="res://pngs/wheel.png" id="3_s2jd5"]
+[ext_resource type="Texture2D" uid="uid://bl3p1rn0fhp41" path="res://pngs/wheel_spike.png" id="6_kma0d"]
 
 [node name="wheel" type="Control" unique_id=1075253300]
 layout_mode = 3
@@ -134,3 +135,8 @@ target_position = Vector2(0, -256)
 collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="WheelSpike" type="Sprite2D" parent="ray" unique_id=278250509]
+position = Vector2(0, -226)
+rotation = -3.1415927
+texture = ExtResource("6_kma0d")

@@ -1,15 +1,24 @@
 extends Control
 
 @onready var wheel = $CanvasLayer/wheel
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@onready var hp_bar = $CanvasLayer/hp_bar
+
+var new_hp = 100.0
+var new_color: Color = Color(1, 0, 0)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func _process(delta: float) -> void:
+	hp_bar.value = lerp(hp_bar.value, new_hp, 3 * delta)
+	hp_bar.tint_progress = lerp(hp_bar.tint_progress, new_color, 3 * delta)
 
 #should update the wheel when called
-func update_slots_icons() -> void:
-	pass
+func update_slots_icons(slot: WheelSlot, id: int) -> void:
+	wheel.replace_visual_slot(slot, id)
+
+
+func update_health(value) -> void:
+	new_hp = value
+
+func update_health_color(color: Color) -> void:
+	new_color = color
+	

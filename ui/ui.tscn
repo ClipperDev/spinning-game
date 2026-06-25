@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://dvax3pt1c2alc" path="res://ui/wheel.tscn" id="1_nb4k0"]
 [ext_resource type="Script" uid="uid://boumo01enybwp" path="res://scripts/ui.gd" id="1_wl5ax"]
 [ext_resource type="Texture2D" uid="uid://dpus87o53r46p" path="res://pngs/chip.png" id="2_ks8t7"]
+[ext_resource type="Texture2D" uid="uid://bo8hlxrbmd7n6" path="res://pngs/hp_under.png" id="2_obcwv"]
+[ext_resource type="Texture2D" uid="uid://bjp2e45nqsuii" path="res://pngs/hp_over.png" id="3_bo1jx"]
+[ext_resource type="Texture2D" uid="uid://c8v2socf0dokg" path="res://pngs/hp_progress.png" id="4_gycre"]
 
 [node name="ui" type="Control" unique_id=737340152]
 layout_mode = 3
@@ -12,18 +15,32 @@ script = ExtResource("1_wl5ax")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=643822415]
 
+[node name="hp_bar" type="TextureProgressBar" parent="CanvasLayer" unique_id=547601497]
+offset_left = 14.0
+offset_top = 15.0
+offset_right = 526.0
+offset_bottom = 55.0
+scale = Vector2(0.82366794, 0.82366794)
+step = 0.1
+value = 100.0
+texture_under = ExtResource("2_obcwv")
+texture_over = ExtResource("3_bo1jx")
+texture_progress = ExtResource("4_gycre")
+tint_under = Color(0.6, 0.6, 0.6, 1)
+tint_progress = Color(1, 0, 0, 1)
+
 [node name="wheel" parent="CanvasLayer" unique_id=1075253300 instance=ExtResource("1_nb4k0")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
-scale = Vector2(0.21578313, 0.21578313)
+scale = Vector2(0.30459967, 0.30459967)
 
 [node name="chips" type="Label" parent="CanvasLayer" unique_id=634992783]
-offset_left = 42.0
-offset_top = 9.0
-offset_right = 97.0
-offset_bottom = 54.0
+offset_left = 48.0
+offset_top = 52.0
+offset_right = 103.0
+offset_bottom = 97.0
 scale = Vector2(0.85233414, 0.85233414)
 theme_override_font_sizes/font_size = 32
 text = "100"

@@ -4,6 +4,7 @@ class_name Player extends CharacterBody2D
 @onready var gun_pivot: Node2D = $body_pivot/gun_pivot
 @onready var body_pivot: Node2D = $body_pivot
 @onready var head_pivot: Node2D = $body_pivot/head_pivot
+@onready var ui: Control = $ui
 
 @onready var statemachine: Node = $Statemachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -69,3 +70,8 @@ func heal(value) -> void:
 		hp = max_hp
 	else:
 		hp += value
+	ui.update_health(hp)
+
+func take_damage(damage) -> void:
+	hp -= damage
+	ui.update_health(hp)

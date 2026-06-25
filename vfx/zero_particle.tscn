@@ -21,12 +21,12 @@ angular_velocity_max = 61.799984
 gravity = Vector3(0, 0, 0)
 radial_accel_min = 5.1499977
 radial_accel_max = 8.579998
-scale_min = 0.19999999
-scale_max = 0.19999999
+scale_min = 0.29999998
+scale_max = 0.29999998
 color = Color(0, 1, 0, 1)
 color_ramp = SubResource("GradientTexture1D_8vrlf")
 
 [node name="spades_hollow_particle" type="GPUParticles2D" unique_id=751571000]
-amount = 32
+amount = 40
 texture = ExtResource("1_ojkkw")
 process_material = SubResource("ParticleProcessMaterial_1vivr")
