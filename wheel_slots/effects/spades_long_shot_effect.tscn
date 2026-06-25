@@ -4,4 +4,5 @@
 
 [node name="spades_long_shot_effect" type="Node2D" unique_id=994707879]
 script = ExtResource("1_cgktm")
+bullet_vel_mod = 1.4
 metadata/_custom_type_script = "uid://b5ij2w5s4xb84"

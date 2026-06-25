@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://mft6tahuy4um"]
+
+[ext_resource type="Script" uid="uid://csdoaxh2t0xup" path="res://scripts/hearts_healing_effect.gd" id="1_uv5va"]
+
+[node name="hearts_healing_effect" type="Node2D" unique_id=1172017596]
+script = ExtResource("1_uv5va")
+metadata/_custom_type_script = "uid://b5ij2w5s4xb84"

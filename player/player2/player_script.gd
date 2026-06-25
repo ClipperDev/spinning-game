@@ -7,6 +7,9 @@ class_name Player extends CharacterBody2D
 
 @onready var statemachine: Node = $Statemachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+## hp is in the player for now
+@export var max_hp: float = 100.0
+var hp = max_hp
 
 @export var gravity: float = 10.0
 
@@ -60,3 +63,9 @@ func change_anim(anim: String) -> void:
 		
 	animation_player.play(anim)
 	
+## hp is in the player for now
+func heal(value) -> void:
+	if hp + value > max_hp:
+		hp = max_hp
+	else:
+		hp += value
