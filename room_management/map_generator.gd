@@ -4,9 +4,11 @@ class_name MapGenerator extends RefCounted
 func generate_graph(rng: RandomNumberGenerator, floor_data: FloorData) -> RoomGraph:
 	var graph: RoomGraph
 	var attempts: int = 0
+	var total_rooms: int = 0
 	while attempts <= 100:
 		graph = _attempt_generate_graph(rng, floor_data, attempts)
 		var count: int = graph.nodes.size()
+		total_rooms += graph.nodes.size()
 		if count >= floor_data.MIN_ROOMS and count <= floor_data.MAX_ROOMS:
 			attempts += 1
 			_assign_boss(graph, rng)
@@ -14,10 +16,12 @@ func generate_graph(rng: RandomNumberGenerator, floor_data: FloorData) -> RoomGr
 			if not _assign_rest(graph, rng): continue
 			print_rich("[color=green]Finished on attempt -> ", attempts)
 			print_rich("[color=white]Room Count -> [color=yellow]", count)
+			print_rich("[color=white]Average Room Count -> [color=yellow] %0.2f" % (total_rooms/float(attempts)))
 			return graph
 		attempts += 1
 		
 	push_error("Ran out of attempts to generate map for floor -> ", floor_data.FLOOR_INDEX)
+	print_rich("[color=orange]Average Room Count -> [color=red]", total_rooms/float(attempts))
 	return null
 
 

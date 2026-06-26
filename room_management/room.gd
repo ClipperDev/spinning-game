@@ -1,9 +1,7 @@
-@tool
 class_name Room extends Node2D
 
-@export var room_id: StringName
-@export var doors: Dictionary[int, DoorMarker] = {}
-var enterance: int = -1
+@export var room_data: RoomData
+@onready var tilemap: TileMapLayer = $TileMapLayer
 
 func _ready() -> void:
-	assert(!doors.is_empty(), "NO DOORS IN ROOM " + room_id)
+	assert(tilemap != null and room_data != null, "NULL TILEMAP OR RoomData in " + name)
