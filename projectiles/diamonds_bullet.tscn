@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ogm42y4meq7h"]
+
+[ext_resource type="Script" uid="uid://tqfwqms2xfyl" path="res://scripts/projectile.gd" id="1_8u6ik"]
+[ext_resource type="PackedScene" uid="uid://b8v1ocvkxk2vt" path="res://vfx/diamonds_particle.tscn" id="2_8u6ik"]
+[ext_resource type="PackedScene" uid="uid://c8vca4r5l6v7a" path="res://vfx/diamonds_hit_particles.tscn" id="3_uyg46"]
+[ext_resource type="Texture2D" uid="uid://d7338f8smnm3" path="res://pngs/bullet_diamond.png" id="4_ptqbf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vivr"]
+resource_local_to_scene = true
+radius = 5.0
+
+[node name="Projectile" type="Area2D" unique_id=464488933]
+script = ExtResource("1_8u6ik")
+speed = 1000.0
+damage = 25.0
+lifetime = 5.0
+trail_vfx = ExtResource("2_8u6ik")
+explosion_vfx = ExtResource("3_uyg46")
+metadata/_custom_type_script = "uid://tqfwqms2xfyl"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1933856661]
+shape = SubResource("CircleShape2D_1vivr")
+
+[node name="Bullet" type="Sprite2D" parent="." unique_id=1518575775]
+scale = Vector2(0.25000003, 0.25)
+texture = ExtResource("4_ptqbf")

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://biodfiv7ub4lr"]
+
+[ext_resource type="Script" uid="uid://b5ij2w5s4xb84" path="res://scripts/wheel_effect.gd" id="1_08113"]
+
+[node name="clubs_chips_on_hit_effect" type="Node2D" unique_id=362646170]
+script = ExtResource("1_08113")
+ammo_mod = 5
+metadata/_custom_type_script = "uid://b5ij2w5s4xb84"

@@ -20,28 +20,9 @@ position = Vector2(2.2189026, 150.5)
 rotation = -3.1415925
 texture = ExtResource("1_6rmvm")
 
-[node name="NormalPlaceholder" type="Sprite2D" parent="wheel_components" unique_id=1953912930]
-position = Vector2(81.2189, 126.50001)
-rotation = 2.576106
-texture = ExtResource("2_s2jd5")
-
-[node name="NormalPlaceholder2" type="Sprite2D" parent="wheel_components" unique_id=1839581966]
-position = Vector2(148.2189, 21.499998)
-rotation = 1.717404
-texture = ExtResource("3_kma0d")
-
-[node name="NormalPlaceholder3" type="Sprite2D" parent="wheel_components" unique_id=493972058]
-position = Vector2(112.218895, -98.49999)
-rotation = 0.85870206
-texture = ExtResource("2_s2jd5")
-
-[node name="NormalPlaceholder4" type="Sprite2D" parent="wheel_components" unique_id=711978604]
-position = Vector2(-0.7810974, -149.5)
-texture = ExtResource("3_kma0d")
-
-[node name="NormalPlaceholder5" type="Sprite2D" parent="wheel_components" unique_id=1007251881]
-position = Vector2(-114.7811, -96.49999)
-rotation = -0.85870206
+[node name="NormalPlaceholder7" type="Sprite2D" parent="wheel_components" unique_id=1714327671]
+position = Vector2(-77.7811, 128.5)
+rotation = -2.576106
 texture = ExtResource("2_s2jd5")
 
 [node name="NormalPlaceholder6" type="Sprite2D" parent="wheel_components" unique_id=1731416371]
@@ -49,9 +30,28 @@ position = Vector2(-147.7811, 24.499992)
 rotation = -1.717404
 texture = ExtResource("3_kma0d")
 
-[node name="NormalPlaceholder7" type="Sprite2D" parent="wheel_components" unique_id=1714327671]
-position = Vector2(-77.7811, 128.5)
-rotation = -2.576106
+[node name="NormalPlaceholder5" type="Sprite2D" parent="wheel_components" unique_id=1007251881]
+position = Vector2(-114.7811, -96.49999)
+rotation = -0.85870206
+texture = ExtResource("2_s2jd5")
+
+[node name="NormalPlaceholder4" type="Sprite2D" parent="wheel_components" unique_id=711978604]
+position = Vector2(-0.7810974, -149.5)
+texture = ExtResource("3_kma0d")
+
+[node name="NormalPlaceholder3" type="Sprite2D" parent="wheel_components" unique_id=493972058]
+position = Vector2(112.218895, -98.49999)
+rotation = 0.85870206
+texture = ExtResource("2_s2jd5")
+
+[node name="NormalPlaceholder2" type="Sprite2D" parent="wheel_components" unique_id=1839581966]
+position = Vector2(148.2189, 21.499998)
+rotation = 1.717404
+texture = ExtResource("3_kma0d")
+
+[node name="NormalPlaceholder" type="Sprite2D" parent="wheel_components" unique_id=1953912930]
+position = Vector2(81.2189, 126.50001)
+rotation = 2.576106
 texture = ExtResource("2_s2jd5")
 
 [node name="slot_1" type="Area2D" parent="wheel_components" unique_id=800931037]

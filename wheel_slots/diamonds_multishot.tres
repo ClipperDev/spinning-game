@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WheelSlot" format=3 uid="uid://4prfv1dcpa7y"]
+
+[ext_resource type="PackedScene" uid="uid://ogm42y4meq7h" path="res://projectiles/diamonds_bullet.tscn" id="1_4l8p5"]
+[ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="2_4l8p5"]
+[ext_resource type="PackedScene" uid="uid://ckjcwsw021jid" path="res://wheel_slots/effects/diamonds_multishot_effect.tscn" id="2_gkprd"]
+[ext_resource type="Texture2D" uid="uid://p2tt2toac3bk" path="res://pngs/wheel_segments/diamond1.png" id="2_oxuty"]
+
+[resource]
+script = ExtResource("2_4l8p5")
+item_name = "diamonds_multishot"
+suit = "diamonds"
+wheel_texture = ExtResource("2_oxuty")
+bullet = ExtResource("1_4l8p5")
+effects = ExtResource("2_gkprd")
+metadata/_custom_type_script = "uid://dhpawmqpt3vvs"

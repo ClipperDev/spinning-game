@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c2i2l1aruyyod"]
+
+[ext_resource type="Script" uid="uid://bwlrt3ljmxds0" path="res://scripts/item_pickup.gd" id="1_prgrc"]
+[ext_resource type="Texture2D" uid="uid://cjjhywxvewnlx" path="res://pngs/cards/spades_A.png" id="2_wgnby"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
+size = Vector2(30, 40)
+
+[node name="ItemPickup" type="Area2D" unique_id=17087016]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_prgrc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=93006611]
+shape = SubResource("RectangleShape2D_1vivr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=680275918]
+scale = Vector2(0.10318944, 0.10318944)
+texture = ExtResource("2_wgnby")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

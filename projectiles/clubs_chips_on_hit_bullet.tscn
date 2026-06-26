@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://m2wtc8bpmvs"]
+
+[ext_resource type="Script" uid="uid://bni26khgpbbcq" path="res://scripts/clubs_chips_on_hit_bullet.gd" id="1_s0si1"]
+[ext_resource type="PackedScene" uid="uid://bal3ntq2cpkfv" path="res://vfx/clubs_particle.tscn" id="2_d6p5m"]
+[ext_resource type="PackedScene" uid="uid://1sdaasoekdpo" path="res://vfx/clubs_hit_particles.tscn" id="3_tbuoc"]
+[ext_resource type="Texture2D" uid="uid://b3bjf7aun68w3" path="res://pngs/bullet_club.png" id="4_nq3bm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vivr"]
+resource_local_to_scene = true
+radius = 5.0
+
+[node name="Projectile" type="Area2D" unique_id=464488933]
+script = ExtResource("1_s0si1")
+speed = 1000.0
+damage = 25.0
+lifetime = 5.0
+trail_vfx = ExtResource("2_d6p5m")
+explosion_vfx = ExtResource("3_tbuoc")
+metadata/_custom_type_script = "uid://tqfwqms2xfyl"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1933856661]
+shape = SubResource("CircleShape2D_1vivr")
+
+[node name="Bullet" type="Sprite2D" parent="." unique_id=1518575775]
+scale = Vector2(0.25000003, 0.25)
+texture = ExtResource("4_nq3bm")

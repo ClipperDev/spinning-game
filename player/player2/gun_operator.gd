@@ -72,7 +72,13 @@ func reload() -> void:
 
 #fire bullet, then wait for 1 / fire rate before shooting again
 func shoot() -> void:
-	fire_bullet()
+	if reloading: return
+	if ammo > 0:
+		var bullet: Projectile = fire_bullet()
+		if get_child(0) != null:
+			get_child(0).bullet_on_shot_effect(bullet)
+		ammo -= 1
+		
 	shot_ready = false
 	await get_tree().create_timer(
 		1.0 / fire_rate,
@@ -81,17 +87,15 @@ func shoot() -> void:
 	shot_ready = true
 
 
-func fire_bullet() -> void:
-	if ammo > 0:
-		var bullet: Projectile = current_slot.bullet.instantiate()
-		player.add_sibling(bullet)
-		bullet.global_transform = muzzle.global_transform
-		bullet.damage *= damage_mod
-		bullet.get_child(0).shape.radius *= bullet_size_mod
-		bullet.speed *= bullet_vel_mod
-		if get_child(0) != null:
-			get_child(0).bullet_on_shot_effect(bullet)
-		ammo -= 1
+func fire_bullet() -> Projectile:
+	var bullet: Projectile = current_slot.bullet.instantiate()
+	player.add_sibling(bullet)
+	bullet.global_transform = muzzle.global_transform
+	bullet.damage *= damage_mod
+	bullet.get_child(0).shape.radius *= bullet_size_mod
+	bullet.speed *= bullet_vel_mod
+	
+	return bullet
 
 
 # replace a wheel section with a new one

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WheelSlot" format=3 uid="uid://dj7evlin24cmc"]
+
+[ext_resource type="PackedScene" uid="uid://m2wtc8bpmvs" path="res://projectiles/clubs_chips_on_hit_bullet.tscn" id="1_b0w80"]
+[ext_resource type="Script" uid="uid://dhpawmqpt3vvs" path="res://scripts/wheel_slot.gd" id="2_lwhl2"]
+[ext_resource type="PackedScene" uid="uid://biodfiv7ub4lr" path="res://wheel_slots/effects/clubs_chips_on_hit_effect.tscn" id="2_pdghs"]
+[ext_resource type="Texture2D" uid="uid://pchqxrhg6yjx" path="res://pngs/wheel_segments/club3.png" id="3_b0w80"]
+
+[resource]
+script = ExtResource("2_lwhl2")
+item_name = "clubs_chips_on_hit"
+suit = "clubs"
+wheel_texture = ExtResource("3_b0w80")
+bullet = ExtResource("1_b0w80")
+effects = ExtResource("2_pdghs")
+metadata/_custom_type_script = "uid://dhpawmqpt3vvs"

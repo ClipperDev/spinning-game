@@ -17,7 +17,8 @@ func _process(delta: float) -> void:
 
 #should update the wheel when called
 func update_slots_icons(slot: WheelSlot, id: int) -> void:
-	wheel.replace_visual_slot(slot, id)
+	pass
+	#wheel.replace_visual_slot(slot, id)
 
 
 func update_health(value) -> void:

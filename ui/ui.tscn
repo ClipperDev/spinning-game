@@ -6,33 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bo8hlxrbmd7n6" path="res://pngs/hp_under.png" id="2_obcwv"]
 [ext_resource type="Texture2D" uid="uid://bjp2e45nqsuii" path="res://pngs/hp_over.png" id="3_bo1jx"]
 [ext_resource type="Texture2D" uid="uid://c8v2socf0dokg" path="res://pngs/hp_progress.png" id="4_gycre"]
-
-[sub_resource type="Animation" id="Animation_obcwv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("wheel:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.53355247, 0.53355247)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("wheel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(640, 318.99997)]
-}
+[ext_resource type="Texture2D" uid="uid://bbkxswbeq7ebf" path="res://pngs/bullet.png" id="7_bo1jx"]
 
 [sub_resource type="Animation" id="Animation_bo1jx"]
 resource_name = "wheel_down"
@@ -90,7 +64,6 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pa1oa"]
 _data = {
-&"RESET": SubResource("Animation_obcwv"),
 &"wheel_down": SubResource("Animation_bo1jx"),
 &"wheel_up": SubResource("Animation_gycre")
 }
@@ -121,10 +94,8 @@ tint_progress = Color(1, 0, 0, 1)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_top = 318.99997
-offset_bottom = 318.99997
 grow_horizontal = 2
-scale = Vector2(0.53355247, 0.53355247)
+scale = Vector2(0.30459967, 0.30459967)
 
 [node name="chips" type="Label" parent="CanvasLayer" unique_id=634992783]
 offset_left = 48.0
@@ -139,5 +110,47 @@ text = "100"
 position = Vector2(-18, 24)
 texture = ExtResource("2_ks8t7")
 
+[node name="ammo" type="Label" parent="CanvasLayer" unique_id=1476311945]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -87.0
+offset_right = -73.0
+offset_bottom = -48.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "9/9"
+horizontal_alignment = 1
+
+[node name="reload_text" type="Label" parent="CanvasLayer/ammo" unique_id=1302975842]
+visible = false
+layout_mode = 0
+offset_left = -34.0
+offset_top = 28.0
+offset_right = 117.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 28
+text = "reloading..."
+
+[node name="texture" type="Sprite2D" parent="CanvasLayer/ammo" unique_id=1729000269]
+position = Vector2(-21, 13)
+rotation = -0.81602716
+texture = ExtResource("7_bo1jx")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1282432965]
 libraries/ = SubResource("AnimationLibrary_pa1oa")
+
+[node name="item_list" type="GridContainer" parent="CanvasLayer" unique_id=1343703026]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = -111.0
+offset_right = 81.0
+offset_bottom = -71.0
+grow_vertical = 0
+columns = 8

@@ -64,22 +64,25 @@ func determine_result() -> int:
 	
 	return slot_id
 
-func start_replacing(wheel_slot) -> void:
+func start_replacing(wheel_slot: WheelSlot) -> void:
 	stored_wheel_for_replace = wheel_slot
 	replacing_sections = true
 	replace_buttons.show()
+	Global.player.ui.anim_player.play("wheel_down")
 
 func stop_replacing() -> void:
 	stored_wheel_for_replace = null
 	replacing_sections = false
 	replace_buttons.hide()
+	Global.player.ui.anim_player.play("wheel_up")
 
 func replace() -> void:
 	if replacing_sections != true: return
 	for i in replace_buttons.get_children():
-		if i.pressed:
+		if i.button_pressed:
 			var slot = i.get_index()
 			Global.player.get_node("gun_operator").replace_wheel_section(stored_wheel_for_replace, slot)
+			replace_visual_slot(stored_wheel_for_replace, slot)
 			stop_replacing() 
 
 

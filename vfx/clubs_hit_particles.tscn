@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://1sdaasoekdpo"]
 
-[ext_resource type="Texture2D" uid="uid://dl227rxxoraqp" path="res://pngs/particles/spade_particle.png" id="1_blx4x"]
+[ext_resource type="Texture2D" uid="uid://bh6pi64ykajek" path="res://pngs/particles/club_particle.png" id="1_blx4x"]
 [ext_resource type="Script" uid="uid://cpili2j204hif" path="res://vfx/particles_queue_free_on_hit.gd" id="2_mivm2"]
 
 [sub_resource type="Gradient" id="Gradient_kkmim"]
@@ -19,7 +19,7 @@ initial_velocity_max = 150.22
 gravity = Vector3(0, 98, 0)
 scale_min = 0.19999999
 scale_max = 0.19999999
-color = Color(0.1764706, 0.12941177, 0.81960785, 1)
+color = Color(0.1254902, 0.8784314, 0.9607843, 1)
 color_ramp = SubResource("GradientTexture1D_ehb1s")
 
 [node name="spades_hit_particles" type="GPUParticles2D" unique_id=400017745]

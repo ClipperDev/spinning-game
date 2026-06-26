@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ckjcwsw021jid"]
+
+[ext_resource type="Script" uid="uid://vluaag1rl5fi" path="res://wheel_slots/effects/diamonds_multishot_effect.gd" id="1_vvd7j"]
+
+[node name="diamonds_multishot_effect" type="Node2D" unique_id=1725480965]
+script = ExtResource("1_vvd7j")
+damage_mod = 0.3
+metadata/_custom_type_script = "uid://b5ij2w5s4xb84"
