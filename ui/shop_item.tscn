@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c85nyatcxibyc"]
 
 [ext_resource type="Texture2D" uid="uid://dpus87o53r46p" path="res://pngs/chip.png" id="1_mgmnk"]
+[ext_resource type="Texture2D" uid="uid://cjjhywxvewnlx" path="res://pngs/cards/spades_A.png" id="2_7kxbi"]
 
 [node name="shop_item" type="Control" unique_id=407288892]
 custom_minimum_size = Vector2(100, 171)
@@ -31,9 +32,11 @@ offset_right = 81.0
 offset_bottom = 132.0
 
 [node name="image" type="Sprite2D" parent="." unique_id=1702739787]
-position = Vector2(41, 70)
+position = Vector2(41, 78)
+scale = Vector2(0.272, 0.27199996)
+texture = ExtResource("2_7kxbi")
 
-[node name="Button" type="Button" parent="." unique_id=1028702862]
+[node name="button" type="Button" parent="." unique_id=1028702862]
 layout_mode = 0
 offset_top = 138.0
 offset_right = 81.0

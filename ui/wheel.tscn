@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bl3p1rn0fhp41" path="res://pngs/wheel_spike.png" id="6_kma0d"]
 
 [node name="wheel" type="Control" unique_id=1075253300]
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_s2jd5")
