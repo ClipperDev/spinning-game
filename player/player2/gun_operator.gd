@@ -26,6 +26,12 @@ var spinning = false
 @onready var muzzle = $"../body_pivot/gun_pivot/muzzle"
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		if player.ui.shop.visible:
+			player.ui.shop.hide()
+		else:
+			player.ui.shop.show()
+	
 	# shooting
 	if event.is_action_pressed("fire"):
 		if shot_ready == true:
@@ -33,12 +39,7 @@ func _input(event: InputEvent) -> void:
 	# reloading. add animation later
 	if event.is_action_pressed("reload"):
 		if not reloading:
-			reloading = true
-			await get_tree().create_timer(
-				reload_speed,
-				false
-			).timeout
-			reload()
+			start_reloading()
 	
 	# spin to win type shi, add animations later
 	if event.is_action_pressed("spin"):
@@ -63,11 +64,22 @@ func spin_result(id: int) -> void:
 	add_child(wheel_effect)
 	spinning = false
 
+func start_reloading() -> void:
+	reloading = true
+	player.ui.ammo.get_child(0).show()
+	await get_tree().create_timer(
+		reload_speed,
+		false
+	).timeout
+	reload()
+
 func reload() -> void:
 	ammo = max_ammo
 	current_slot = default_bullet
 	if get_child(0) != null:
 		get_child(0).deactivate()
+	player.ui.ammo.get_child(0).hide()
+	player.ui.ammo.text = str(ammo) + "/9"
 	reloading = false
 
 #fire bullet, then wait for 1 / fire rate before shooting again
@@ -78,13 +90,15 @@ func shoot() -> void:
 		if get_child(0) != null:
 			get_child(0).bullet_on_shot_effect(bullet)
 		ammo -= 1
-		
+		player.ui.ammo.text = str(ammo) + "/9"
 	shot_ready = false
 	await get_tree().create_timer(
 		1.0 / fire_rate,
 		false
 	).timeout
 	shot_ready = true
+	if ammo <= 0:
+		start_reloading()
 
 
 func fire_bullet() -> Projectile:

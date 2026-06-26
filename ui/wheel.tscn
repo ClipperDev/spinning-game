@@ -133,6 +133,7 @@ texture = ExtResource("3_s2jd5")
 visible = false
 
 [node name="0" type="Button" parent="wheel_components/replace_buttons" unique_id=2132506112]
+z_index = 7
 offset_left = -234.0
 offset_top = 204.0
 offset_right = -75.0
@@ -142,6 +143,7 @@ theme_override_font_sizes/font_size = 36
 text = "REPLACE"
 
 [node name="1" type="Button" parent="wheel_components/replace_buttons" unique_id=928119750]
+z_index = 7
 offset_left = -312.0
 offset_top = -31.000004
 offset_right = -153.0
@@ -151,6 +153,7 @@ theme_override_font_sizes/font_size = 36
 text = "REPLACE"
 
 [node name="2" type="Button" parent="wheel_components/replace_buttons" unique_id=11338333]
+z_index = 7
 offset_left = -178.00002
 offset_top = -252.00003
 offset_right = -19.000015
@@ -160,6 +163,7 @@ theme_override_font_sizes/font_size = 36
 text = "REPLACE"
 
 [node name="3" type="Button" parent="wheel_components/replace_buttons" unique_id=2022306198]
+z_index = 7
 offset_left = 76.0
 offset_top = -301.0
 offset_right = 235.0
@@ -169,6 +173,7 @@ theme_override_font_sizes/font_size = 36
 text = "REPLACE"
 
 [node name="4" type="Button" parent="wheel_components/replace_buttons" unique_id=1450272107]
+z_index = 7
 offset_left = 279.99997
 offset_top = -135.99998
 offset_right = 438.99997
@@ -178,6 +183,7 @@ theme_override_font_sizes/font_size = 36
 text = "REPLACE"
 
 [node name="5" type="Button" parent="wheel_components/replace_buttons" unique_id=604837619]
+z_index = 7
 offset_left = 284.99997
 offset_top = 112.0
 offset_right = 443.99997
@@ -187,6 +193,7 @@ theme_override_font_sizes/font_size = 36
 text = "REPLACE"
 
 [node name="6" type="Button" parent="wheel_components/replace_buttons" unique_id=1042078971]
+z_index = 7
 offset_left = 115.0
 offset_top = 288.0
 offset_right = 274.0

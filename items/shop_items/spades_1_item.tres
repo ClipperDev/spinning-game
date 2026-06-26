@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShopItem" format=3 uid="uid://burrwxmekdqve"]
+
+[ext_resource type="Script" uid="uid://bgjiwmsp2xfqv" path="res://scripts/shop_item.gd" id="1_affn6"]
+[ext_resource type="Texture2D" uid="uid://davs1h11fhc3d" path="res://pngs/wheel_segments/spade1.png" id="1_gfgsv"]
+[ext_resource type="Resource" uid="uid://blj63kxp6co3s" path="res://wheel_slots/spades_long_shot.tres" id="2_cbden"]
+
+[resource]
+script = ExtResource("1_affn6")
+cost = 30
+item = ExtResource("2_cbden")
+image = ExtResource("1_gfgsv")
+description = "+40 bullet velocity; bullet's damage increases with distance traveled"
+metadata/_custom_type_script = "uid://bgjiwmsp2xfqv"

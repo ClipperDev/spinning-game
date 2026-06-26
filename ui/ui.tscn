@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bjp2e45nqsuii" path="res://pngs/hp_over.png" id="3_bo1jx"]
 [ext_resource type="Texture2D" uid="uid://c8v2socf0dokg" path="res://pngs/hp_progress.png" id="4_gycre"]
 [ext_resource type="Texture2D" uid="uid://bbkxswbeq7ebf" path="res://pngs/bullet.png" id="7_bo1jx"]
+[ext_resource type="PackedScene" uid="uid://crcliukludp7t" path="res://ui/shop.tscn" id="8_gycre"]
+[ext_resource type="Script" uid="uid://bgjiwmsp2xfqv" path="res://scripts/shop_item.gd" id="9_ay4pc"]
+[ext_resource type="Resource" uid="uid://burrwxmekdqve" path="res://items/shop_items/spades_1_item.tres" id="10_bi8hs"]
 
 [sub_resource type="Animation" id="Animation_bo1jx"]
 resource_name = "wheel_down"
@@ -90,7 +93,11 @@ texture_progress = ExtResource("4_gycre")
 tint_under = Color(0.6, 0.6, 0.6, 1)
 tint_progress = Color(1, 0, 0, 1)
 
+[node name="shop" parent="CanvasLayer" unique_id=986474371 instance=ExtResource("8_gycre")]
+item_pool = Array[ExtResource("9_ay4pc")]([ExtResource("10_bi8hs"), ExtResource("10_bi8hs"), ExtResource("10_bi8hs"), ExtResource("10_bi8hs"), ExtResource("10_bi8hs")])
+
 [node name="wheel" parent="CanvasLayer" unique_id=1075253300 instance=ExtResource("1_nb4k0")]
+z_index = 10
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
