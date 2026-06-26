@@ -83,4 +83,25 @@ func update_cache(keep: Dictionary[StringName, bool]) -> void:
 	for room_id in keep.keys():
 		request_room_load(room_id)
 
+func pick_room(type: RoomGraph.RoomType, 
+required_doors: Array[RoomData.DoorDir], 
+rng: RandomNumberGenerator) -> StringName:
+	var candidates: Array[StringName] = []
+	
+	for id in REGISTRY.ROOM_DATA.keys():
+		var data: RoomData = REGISTRY.ROOM_DATA[id]
+		if data.type != type:
+			continue
+		if not _has_required_doors(data.doors, required_doors):
+			continue
+		candidates.append(id)
+	
+	assert(not candidates.is_empty(), "NO VALID DOORS FOUND " + str(type) + " " + str(required_doors))
+	return candidates[rng.randi_range(0, candidates.size() - 1)]
 		
+func _has_required_doors(available: Array[RoomData.DoorDir], required: Array[RoomData.DoorDir]) -> bool:
+	var a: Array[RoomData.DoorDir] = available.duplicate()
+	var r: Array[RoomData.DoorDir] = required.duplicate()
+	a.sort()
+	r.sort()
+	return a == r

@@ -1,0 +1,21 @@
+[gd_scene format=4 uid="uid://binvmr0xtsiib"]
+
+[ext_resource type="Script" uid="uid://bwy6ro0dm2rdq" path="res://room_management/room.gd" id="1_wm0i0"]
+[ext_resource type="Script" uid="uid://bu2ru5f4ioeds" path="res://room_management/room_data.gd" id="2_7jgru"]
+[ext_resource type="TileSet" uid="uid://dun726mvvq6m1" path="res://wall_tileset.tres" id="3_rj8sk"]
+
+[sub_resource type="Resource" id="Resource_bi0sn"]
+script = ExtResource("2_7jgru")
+id = &"combat_tunnel"
+doors = Array[int]([2, 3])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[node name="CombatTunnel" type="Node2D" unique_id=1134198271]
+script = ExtResource("1_wm0i0")
+room_data = SubResource("Resource_bi0sn")
+metadata/_custom_type_script = "uid://bwy6ro0dm2rdq"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1074304885]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAABAAMAAAACAAAAAAABAAMAAAADAAAAAAABAAMAAAAEAAAAAAABAAMAAAAFAAAAAAACAAAAAAAJAAAAAAAAAAMAAAAKAAAAAAABAAMAAAALAAAAAAABAAMAAAAMAAAAAAABAAMAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAANAAAAAAABAAMAAAAOAAAAAAACAAAAAAAAAAgAAAABAAIAAAABAAgAAAABAAMAAAACAAgAAAABAAMAAAADAAgAAAABAAMAAAAEAAgAAAABAAMAAAAFAAgAAAACAAMAAAAJAAgAAAAAAAMAAAAKAAgAAAABAAMAAAALAAgAAAABAAMAAAAMAAgAAAABAAMAAAANAAgAAAABAAMAAAAOAAgAAAACAAIAAAAOAAEAAAAAAAEAAAAOAAMAAAAAAAEAAAAOAAQAAAAAAAEAAAAOAAIAAAAAAAEAAAAOAAUAAAACAAEAAAAOAAYAAAAAAAEAAAAOAAcAAAAAAAEAAAAAAAYAAAAAAAEAAAAAAAcAAAAAAAEAAAAAAAUAAAAAAAEAAAAFAAEAAAAAAAEAAAAFAAIAAAAAAAEAAAAFAAMAAAABAAIAAAAGAAMAAAABAAMAAAAHAAMAAAABAAMAAAAIAAMAAAACAAMAAAALAAUAAAAAAAMAAAAMAAUAAAABAAMAAAANAAUAAAABAAMAAAA=")
+tile_set = ExtResource("3_rj8sk")

@@ -10,8 +10,16 @@ func _run() -> void:
 	
 	for file in files:
 		if file.get_extension() == "tscn":
-			var id: StringName = file.get_basename()
-			room_paths.ROOM_PATHS[id] = rooms_dir_path + file
+			var path: String = rooms_dir_path + file
+			var scene: PackedScene = load(path)
+			var room: Room = scene.instantiate()
+			
+			assert(room.room_data != null, "NULL ROOM DATA " + path)
+			var id: StringName = room.room_data.id
+			room_paths.ROOM_PATHS[id] = path
+			room_paths.ROOM_DATA[id] = room.room_data
+			
+			room.free()
 			
 	printerr(ResourceSaver.save(room_paths, registry_path))
 

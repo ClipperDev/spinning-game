@@ -1,0 +1,21 @@
+[gd_scene format=4 uid="uid://cmyawgxbbh8w0"]
+
+[ext_resource type="Script" uid="uid://bwy6ro0dm2rdq" path="res://room_management/room.gd" id="1_t1r0d"]
+[ext_resource type="Script" uid="uid://bu2ru5f4ioeds" path="res://room_management/room_data.gd" id="2_gr3qr"]
+[ext_resource type="TileSet" uid="uid://dun726mvvq6m1" path="res://wall_tileset.tres" id="3_eudn6"]
+
+[sub_resource type="Resource" id="Resource_bi0sn"]
+script = ExtResource("2_gr3qr")
+id = &"bottomright01"
+doors = Array[int]([1, 3])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[node name="BottomRight" type="Node2D" unique_id=445218448]
+script = ExtResource("1_t1r0d")
+room_data = SubResource("Resource_bi0sn")
+metadata/_custom_type_script = "uid://bwy6ro0dm2rdq"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1585101041]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAABAAMAAAACAAAAAAABAAMAAAADAAAAAAABAAMAAAAEAAAAAAABAAMAAAAFAAAAAAABAAMAAAAJAAAAAAABAAMAAAAKAAAAAAABAAMAAAALAAAAAAABAAMAAAAMAAAAAAABAAMAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAANAAAAAAABAAMAAAAOAAAAAAACAAAAAAAAAAgAAAABAAIAAAABAAgAAAABAAMAAAACAAgAAAABAAMAAAADAAgAAAABAAMAAAAEAAgAAAABAAMAAAAFAAgAAAACAAMAAAAJAAgAAAAAAAMAAAAKAAgAAAABAAMAAAALAAgAAAABAAMAAAAMAAgAAAABAAMAAAANAAgAAAABAAMAAAAOAAgAAAACAAMAAAAOAAEAAAAAAAEAAAAOAAMAAAAAAAEAAAAOAAQAAAAAAAIAAAAOAAIAAAAAAAEAAAAGAAAAAAABAAMAAAAHAAAAAAABAAMAAAAIAAAAAAABAAMAAAAAAAUAAAAAAAEAAAAAAAYAAAAAAAEAAAAAAAcAAAAAAAEAAAA=")
+tile_set = ExtResource("3_eudn6")

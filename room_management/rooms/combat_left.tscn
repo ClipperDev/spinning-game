@@ -1,0 +1,21 @@
+[gd_scene format=4 uid="uid://jvc8lxje2apt"]
+
+[ext_resource type="Script" uid="uid://bwy6ro0dm2rdq" path="res://room_management/room.gd" id="1_h12gh"]
+[ext_resource type="Script" uid="uid://bu2ru5f4ioeds" path="res://room_management/room_data.gd" id="2_du5ar"]
+[ext_resource type="TileSet" uid="uid://dun726mvvq6m1" path="res://wall_tileset.tres" id="3_1wrr4"]
+
+[sub_resource type="Resource" id="Resource_bi0sn"]
+script = ExtResource("2_du5ar")
+id = &"combat_left01"
+doors = Array[int]([0])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[node name="CombatLeft" type="Node2D" unique_id=1233668764]
+script = ExtResource("1_h12gh")
+room_data = SubResource("Resource_bi0sn")
+metadata/_custom_type_script = "uid://bwy6ro0dm2rdq"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=630665461]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAABAAMAAAACAAAAAAABAAMAAAADAAAAAAABAAMAAAAEAAAAAAABAAMAAAAFAAAAAAABAAMAAAAJAAAAAAABAAMAAAAKAAAAAAABAAMAAAALAAAAAAABAAMAAAAMAAAAAAABAAMAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAIAAAANAAAAAAABAAMAAAAOAAAAAAACAAAAAAAAAAgAAAAAAAMAAAABAAgAAAABAAMAAAACAAgAAAABAAMAAAADAAgAAAABAAMAAAAEAAgAAAABAAMAAAAFAAgAAAABAAMAAAAGAAgAAAABAAMAAAAHAAgAAAABAAMAAAAIAAgAAAABAAMAAAAJAAgAAAABAAMAAAAKAAgAAAABAAMAAAALAAgAAAABAAMAAAAMAAgAAAABAAMAAAANAAgAAAABAAMAAAAOAAgAAAACAAIAAAAOAAEAAAAAAAEAAAAOAAMAAAAAAAEAAAAOAAQAAAAAAAEAAAAOAAIAAAAAAAEAAAAGAAAAAAABAAMAAAAHAAAAAAABAAMAAAAIAAAAAAABAAMAAAAOAAUAAAAAAAEAAAAOAAYAAAAAAAEAAAAOAAcAAAAAAAEAAAA=")
+tile_set = ExtResource("3_1wrr4")

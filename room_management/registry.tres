@@ -1,13 +1,203 @@
 [gd_resource type="Resource" script_class="RoomsPaths" format=3 uid="uid://bywpc7ke4h8q4"]
 
 [ext_resource type="Script" uid="uid://gili253k2hf2" path="res://room_management/room_paths.gd" id="1_l737w"]
+[ext_resource type="Script" uid="uid://bu2ru5f4ioeds" path="res://room_management/room_data.gd" id="1_si5k4"]
+
+[sub_resource type="Resource" id="Resource_bi0sn"]
+script = ExtResource("1_si5k4")
+id = &"boss_left01"
+type = 3
+doors = Array[int]([0])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_si5k4"]
+script = ExtResource("1_si5k4")
+id = &"boss_right01"
+type = 3
+doors = Array[int]([1])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_8s3p1"]
+script = ExtResource("1_si5k4")
+id = &"bottomeleft"
+doors = Array[int]([0, 3])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_t6msk"]
+script = ExtResource("1_si5k4")
+id = &"bottomright01"
+doors = Array[int]([1, 3])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_16up6"]
+script = ExtResource("1_si5k4")
+id = &"combat_bottom01"
+doors = Array[int]([3])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_84fcq"]
+script = ExtResource("1_si5k4")
+id = &"combat_hall01"
+doors = Array[int]([0, 1])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_skaho"]
+script = ExtResource("1_si5k4")
+id = &"combat_left01"
+doors = Array[int]([0])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_0j8wf"]
+script = ExtResource("1_si5k4")
+id = &"combat_right01"
+doors = Array[int]([1])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_qwm5b"]
+script = ExtResource("1_si5k4")
+id = &"combat_top01"
+doors = Array[int]([2])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_7gy63"]
+script = ExtResource("1_si5k4")
+id = &"combat_tunnel"
+doors = Array[int]([2, 3])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_on15l"]
+script = ExtResource("1_si5k4")
+id = &"hallbottom01"
+doors = Array[int]([0, 1, 3])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_s7jk1"]
+script = ExtResource("1_si5k4")
+id = &"halltop01"
+doors = Array[int]([0, 1, 2])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_j4gd4"]
+script = ExtResource("1_si5k4")
+id = &"intersection01"
+doors = Array[int]([0, 1, 2, 3])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_8y0nu"]
+script = ExtResource("1_si5k4")
+id = &"proto_01"
+type = 0
+doors = Array[int]([1])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_rt12e"]
+script = ExtResource("1_si5k4")
+id = &"rest_hall01"
+type = 2
+doors = Array[int]([0, 1])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_h7m0t"]
+script = ExtResource("1_si5k4")
+id = &"rest_left01"
+type = 2
+doors = Array[int]([0])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_rqshc"]
+script = ExtResource("1_si5k4")
+id = &"rest_right01"
+type = 2
+doors = Array[int]([1])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_byu54"]
+script = ExtResource("1_si5k4")
+id = &"shop_left01"
+type = 4
+doors = Array[int]([0])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_gvaan"]
+script = ExtResource("1_si5k4")
+id = &"shop_right01"
+type = 4
+doors = Array[int]([1])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_lowbn"]
+script = ExtResource("1_si5k4")
+id = &"top_left01"
+doors = Array[int]([0, 2])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_tah2y"]
+script = ExtResource("1_si5k4")
+id = &"topright01"
+doors = Array[int]([1, 2])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_v536j"]
+script = ExtResource("1_si5k4")
+id = &"tunnelleft"
+doors = Array[int]([0, 2, 3])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
+
+[sub_resource type="Resource" id="Resource_nv0pt"]
+script = ExtResource("1_si5k4")
+id = &"tunnelright01"
+doors = Array[int]([2, 1, 3])
+metadata/_custom_type_script = "uid://bu2ru5f4ioeds"
 
 [resource]
 script = ExtResource("1_l737w")
 ROOM_PATHS = Dictionary[StringName, String]({
+&"boss_left01": "res://room_management/rooms/boss_left.tscn",
+&"boss_right01": "res://room_management/rooms/boss_right.tscn",
+&"bottomeleft": "res://room_management/rooms/bottom_left.tscn",
+&"bottomright01": "res://room_management/rooms/bottom_right.tscn",
+&"combat_bottom01": "res://room_management/rooms/combat_bottom.tscn",
+&"combat_hall01": "res://room_management/rooms/combat_hall.tscn",
+&"combat_left01": "res://room_management/rooms/combat_left.tscn",
+&"combat_right01": "res://room_management/rooms/combat_right.tscn",
+&"combat_top01": "res://room_management/rooms/combat_top.tscn",
+&"combat_tunnel": "res://room_management/rooms/combat_tunnel.tscn",
+&"hallbottom01": "res://room_management/rooms/hall_bottom.tscn",
+&"halltop01": "res://room_management/rooms/hall_top.tscn",
+&"intersection01": "res://room_management/rooms/combat_intersection.tscn",
 &"proto_01": "res://room_management/rooms/proto_01.tscn",
-&"proto_02": "res://room_management/rooms/proto_02.tscn",
-&"proto_03": "res://room_management/rooms/proto_03.tscn",
-&"proto_04": "res://room_management/rooms/proto_04.tscn",
-&"proto_05": "res://room_management/rooms/proto_05.tscn"
+&"rest_hall01": "res://room_management/rooms/rest_hall.tscn",
+&"rest_left01": "res://room_management/rooms/rest_left.tscn",
+&"rest_right01": "res://room_management/rooms/rest_right.tscn",
+&"shop_left01": "res://room_management/rooms/shop_left.tscn",
+&"shop_right01": "res://room_management/rooms/shop_right.tscn",
+&"top_left01": "res://room_management/rooms/top_left.tscn",
+&"topright01": "res://room_management/rooms/top_right.tscn",
+&"tunnelleft": "res://room_management/rooms/tunnel_left.tscn",
+&"tunnelright01": "res://room_management/rooms/tunnel_right.tscn"
+})
+ROOM_DATA = Dictionary[StringName, ExtResource("1_si5k4")]({
+&"boss_left01": SubResource("Resource_bi0sn"),
+&"boss_right01": SubResource("Resource_si5k4"),
+&"bottomeleft": SubResource("Resource_8s3p1"),
+&"bottomright01": SubResource("Resource_t6msk"),
+&"combat_bottom01": SubResource("Resource_16up6"),
+&"combat_hall01": SubResource("Resource_84fcq"),
+&"combat_left01": SubResource("Resource_skaho"),
+&"combat_right01": SubResource("Resource_0j8wf"),
+&"combat_top01": SubResource("Resource_qwm5b"),
+&"combat_tunnel": SubResource("Resource_7gy63"),
+&"hallbottom01": SubResource("Resource_on15l"),
+&"halltop01": SubResource("Resource_s7jk1"),
+&"intersection01": SubResource("Resource_j4gd4"),
+&"proto_01": SubResource("Resource_8y0nu"),
+&"rest_hall01": SubResource("Resource_rt12e"),
+&"rest_left01": SubResource("Resource_h7m0t"),
+&"rest_right01": SubResource("Resource_rqshc"),
+&"shop_left01": SubResource("Resource_byu54"),
+&"shop_right01": SubResource("Resource_gvaan"),
+&"top_left01": SubResource("Resource_lowbn"),
+&"topright01": SubResource("Resource_tah2y"),
+&"tunnelleft": SubResource("Resource_v536j"),
+&"tunnelright01": SubResource("Resource_nv0pt")
 })

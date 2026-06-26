@@ -14,6 +14,7 @@ func generate_graph(rng: RandomNumberGenerator, floor_data: FloorData) -> RoomGr
 			_assign_boss(graph, rng)
 			if not _assign_shop(graph, rng): continue
 			if not _assign_rest(graph, rng): continue
+			assign_rooms(graph, rng)
 			print_rich("[color=green]Finished on attempt -> ", attempts)
 			print_rich("[color=white]Room Count -> [color=yellow]", count)
 			print_rich("[color=white]Average Room Count -> [color=yellow] %0.2f" % (total_rooms/float(attempts)))
@@ -24,11 +25,28 @@ func generate_graph(rng: RandomNumberGenerator, floor_data: FloorData) -> RoomGr
 	print_rich("[color=orange]Average Room Count -> [color=red]", total_rooms/float(attempts))
 	return null
 
+func assign_rooms(graph: RoomGraph, rng: RandomNumberGenerator) -> void:
+	for node in graph.nodes.values():
+		node = node as RoomGraph.RoomNode
+		if node.scene_id != "":
+			continue
+		var required_doors: Array[RoomData.DoorDir] = _get_required_doors(graph, node)
+		node.scene_id = RoomRegistry.pick_room(node.type, required_doors, rng)
 
+func _get_required_doors(graph: RoomGraph, node: RoomGraph.RoomNode) -> Array[RoomData.DoorDir]:
+	var doors: Array[RoomData.DoorDir] = []
+	for id in node.connections:
+		var neighbour: RoomGraph.RoomNode = graph.nodes[id]
+		var diff: Vector2i = neighbour.coords - node.coords
+		if diff.x == 1: doors.append(RoomData.DoorDir.RIGHT)
+		if diff.x == -1: doors.append(RoomData.DoorDir.LEFT)
+		if diff.y == 1: doors.append(RoomData.DoorDir.BOTTOM)
+		if diff.y == -1: doors.append(RoomData.DoorDir.TOP)
+	return doors
 
-func _attempt_generate_graph(rng: RandomNumberGenerator, floor_data: FloorData, salt: int) -> RoomGraph:
+func _attempt_generate_graph(rng: RandomNumberGenerator, floor_data: FloorData, increment: int) -> RoomGraph:
 	var local_rng: RandomNumberGenerator = RandomNumberGenerator.new()
-	local_rng.seed = rng.seed + salt
+	local_rng.seed = rng.seed + increment
 	var graph: RoomGraph = RoomGraph.new()
 	
 	var main_path: Array[RoomGraph.RoomNode] = []

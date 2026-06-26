@@ -3,10 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://dvax3pt1c2alc" path="res://ui/wheel.tscn" id="1_nb4k0"]
 [ext_resource type="Script" uid="uid://boumo01enybwp" path="res://scripts/ui.gd" id="1_wl5ax"]
 [ext_resource type="Texture2D" uid="uid://dpus87o53r46p" path="res://pngs/chip.png" id="2_ks8t7"]
+[ext_resource type="Script" uid="uid://b165tuwl0wh2j" path="res://minimap.gd" id="4_vkava"]
 
 [node name="ui" type="Control" unique_id=737340152]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_wl5ax")
 
@@ -31,3 +36,17 @@ text = "100"
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/chips" unique_id=1662503014]
 position = Vector2(-18, 24)
 texture = ExtResource("2_ks8t7")
+
+[node name="MiniMap" type="Control" parent="CanvasLayer" unique_id=1091339098]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -246.0
+offset_top = 34.0
+offset_right = -206.0
+offset_bottom = 74.0
+grow_horizontal = 0
+script = ExtResource("4_vkava")
+MINIMAP_MARGIN = 16.0
+metadata/_custom_type_script = "uid://b165tuwl0wh2j"
