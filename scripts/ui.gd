@@ -3,6 +3,7 @@ extends Control
 @onready var wheel = $CanvasLayer/wheel
 @onready var hp_bar = $CanvasLayer/hp_bar
 @onready var chips = $CanvasLayer/chips
+@onready var anim_player = $CanvasLayer/AnimationPlayer
 @onready var player = Global.player
 
 var new_hp = 100.0

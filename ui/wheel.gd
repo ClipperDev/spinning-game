@@ -67,6 +67,12 @@ func determine_result() -> int:
 func start_replacing(wheel_slot) -> void:
 	stored_wheel_for_replace = wheel_slot
 	replacing_sections = true
+	replace_buttons.show()
+
+func stop_replacing() -> void:
+	stored_wheel_for_replace = null
+	replacing_sections = false
+	replace_buttons.hide()
 
 func replace() -> void:
 	if replacing_sections != true: return
@@ -74,8 +80,8 @@ func replace() -> void:
 		if i.pressed:
 			var slot = i.get_index()
 			Global.player.get_node("gun_operator").replace_wheel_section(stored_wheel_for_replace, slot)
-			replacing_sections = false
-			stored_wheel_for_replace = null
+			stop_replacing() 
+
 
 func replace_visual_slot(new_section: WheelSlot, slot: int) -> void:
 	wheel.get_child(slot + 1).texture = new_section.wheel_texture
